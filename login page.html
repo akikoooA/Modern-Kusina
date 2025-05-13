@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-image: url('sign.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      overflow: hidden;
+    }
+
+    .left-container {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left-container h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .left-container p {
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-size: 0.9em;
+    }
+
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .submit-button {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .submit-button:hover {
+      background-color: #e60000;
+    }
+
+    .login-footer {
+      font-size: 0.9em;
+      color: #555;
+      text-align: center;
+    }
+
+    .login-footer a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .right-container {
+      flex: 1;
+      background-image: url('imagelogin.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 10px 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="left-container">
+      <h2>Welcome Back</h2>
+      <p>Log in to Modern Kusina</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Type your password" required />
+        </div>
+        <button type="submit" class="submit-button">Login</button>
+        <div class="login-footer">
+          Not a member?<a href="signup.html">Sign up</a>
+        </div>
+      </form>
+    </div>
+    <div class="right-container"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD19Cr8Qbe81F2kz0w8ASACW_hUE1DBrRQ",
+      authDomain: "modernkusina-da7a9.firebaseapp.com",
+      projectId: "modernkusina-da7a9",
+      storageBucket: "modernkusina-da7a9.firebasestorage.app",
+      messagingSenderId: "1074529326313",
+      appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
+      measurementId: "G-NLNP9BVB29"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful! Redirecting to the main page...");
+        window.location.href = "mainwebsite.html";
+      } catch (error) {
+        alert("Login failed: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

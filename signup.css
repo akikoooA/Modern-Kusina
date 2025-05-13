@@ -1,0 +1,86 @@
+/* Red and white theme styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .wrapper {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1.page-title {
+    font-size: 36px;
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  .signup-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-box h2 {
+    font-size: 28px;
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  .input-box {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-box label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .login-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .login-btn:hover {
+    background-color: darkred;
+  }
+  
+  .signup {
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .signup a {
+    color: red;
+    text-decoration: none;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+  

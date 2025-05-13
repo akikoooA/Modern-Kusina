@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Modern Kusina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Main.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .about-us-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .about-us-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .about-us-header .subheader {
+            font-size: 1.25rem;
+            color: #666;
+            line-height: 1.75;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .our-story {
+            margin-bottom: 50px;
+        }
+        .our-story h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+        .our-story p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.75;
+        }
+        .meet-the-team {
+            margin-bottom: 50px;
+        }
+        .meet-the-team h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+        .team-member {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid #f9fafb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .team-member h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+        .team-member .team-title {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.75;
+            text-align: left;
+        }
+        .our-values, .our-mission {
+            margin-bottom: 50px;
+        }
+        .our-values h2, .our-mission h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+        .our-values ul, .our-mission ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .our-values ul li, .our-mission ul li {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+        .contact-us {
+            background-color: #f9fafb;
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .contact-us h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .contact-us p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+        .contact-us ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-us ul li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .contact-us ul li a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .contact-us ul li a:hover {
+            color: #c0392b;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #34495e;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                padding: 30px;
+            }
+            .about-us-header h1 {
+                font-size: 2.75rem;
+            }
+            .our-story h2, .meet-the-team h2, .our-values h2, .our-mission h2, .contact-us h2 {
+                font-size: 2rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-us-header h1 {
+                font-size: 2.5rem;
+            }
+            .about-us-header .subheader {
+                font-size: 1.2rem;
+            }
+            .our-story p, .team-member p, .our-values ul li, .our-mission ul li, .contact-us p, .contact-us ul li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-us-header {
+                text-align: center;
+            }
+            .about-us-header h1 {
+                font-size: 2.25rem;
+            }
+            .about-us-header .subheader {
+                font-size: 1.1rem;
+            }
+            .our-story h2, .meet-the-team h2, .our-values h2, .our-mission h2, .contact-us h2{
+                font-size: 1.75rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-us {
+                padding: 2rem;
+            }
+            .contact-us ul {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-us-header h1 {
+                font-size: 2rem;
+            }
+            .about-us-header .subheader {
+                font-size: 1rem;
+            }
+            .our-story h2, .meet-the-team h2, .our-values h2, .our-mission h2, .contact-us h2 {
+                font-size: 1.5rem;
+            }
+            .our-story p, .team-member p, .our-values ul li, .our-mission ul li, .contact-us p, .contact-us ul li{
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"></div>
+        <nav class="nav-links">
+            <a href="mainwebsite.html">Home</a>
+            <a href="aboutus.html">About us</a>
+            <a href="Recipes.html">Recipes</a>
+            <a href="membership.html" class="membership-link">Membership</a>
+            <a href="myaccount.html" class="account-link"><i class="fas fa-user"></i> My Account</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="about-us-header">
+            <h1>About Modern Kusina</h1>
+            <p class="subheader">Our culinary journey, our passionate team, and our love for sharing delicious flavors.</p>
+        </section>
+
+        <section class="our-story">
+            <h2>Our Story</h2>
+            <p>
+                Modern Kusina started with a simple idea. We love food, especially the kind that reminds us of home. Whether it’s your lola’s signature dish or something new you’ve just tried. What began as a shared love for Filipino home cooking turned into a passion project where we mix traditional flavors with modern twists. We believe cooking should be fun, easy, and something anyone can enjoy. We built this space to make it easier for people to share recipes, discover Filipino flavors, and feel proud of what they cook.
+            </p>
+            <p>
+                Here, it’s not just about following steps it is also about sharing your food stories, learning from others, and connecting with a community that loves the kitchen as much as you do. We hope Modern Kusina becomes your go-to spot for tasty ideas, cooking tips, and a little inspiration every day.
+            </p>
+        </section>
+
+        <section class="meet-the-team">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="1.png" alt="Scot Gerik P. Zamora">
+                    <h3>Zamora, Scot Gerik P.</h3>
+                    <p class="team-title">Chief Executive Officer, Main Coder</p>
+                    <p>Leads website vision, combines passion for Filipino cuisine with technical expertise.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="2.png" alt="Nicole C. Castro">
+                    <h3>Nicole C. Castro</h3>
+                    <p class="team-title">Chief Operating Officer</p>
+                    <p>Manages daily operations, coordinates teams, and optimizes processes.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="3.png" alt="Drew Matthew S. Ambayec">
+                    <h3>Drew Matthew S. Ambayec</h3>
+                    <p class="team-title">Chief Technology Officer</p>
+                    <p>Leads technological development and ensures smooth website and app function.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="4.png" alt="Rodzil Jhon Resubal">
+                    <h3>Rodzil Jhon Resubal</h3>
+                    <p class="team-title">Marketing Manager</p>
+                    <p>Collaborates on website integration of marketing aspects and expands web presence.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="5.png" alt="Mark G. Dig">
+                    <h3>Mark G. Dig</h3>
+                    <p class="team-title">Community Relations Manager</p>
+                    <p>Builds and maintains connections with our audience.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="6.png" alt="Abril A. Guevarra">
+                    <h3>Abril A. Guevarra</h3>
+                    <p class="team-title">Content Creator</p>
+                    <p>Develops engaging content, including recipe highlights and cooking tips.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-values">
+            <h2>Our Vision</h2>
+            <ul>
+                <li>
+                    Our vision for Modern Kusina is to inspire users to explore a variety of dishes and find joy in the cooking process. We empower them with the freedom to create and share their own recipes on our platform, allowing them to proudly showcase their culinary creations to the world. This not only helps aspiring chefs but also supports anyone cooking for loved ones, expanding their skills, or discovering their passion for food.
+                </li>
+            </ul>
+        </section>
+
+        <section class="our-mission">
+            <h2>Our Mission</h2>
+            <ul>
+                <li>
+                    Our mission is to create an essential online platform for food lovers that fosters a collaborative environment for sharing recipes and cooking experiences. It aims to connect users whether they are novice cooks or experienced chefswith a community where they can learn, share, and get inspired by others. The focus is on enhancing culinary skills, allowing interaction among members, and providing a space for personalization of recipes while building connections with like-minded food enthusiasts
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact-us">
+            <h2>Get in Touch</h2>
+            <p>We'd love to hear from you! Whether you have a question, a suggestion, or just want to say hello, feel free to reach out.</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:modernkusina@gmail.com">modernkusina@gmail.com</a></li>
+                <li><strong>Contact Number:</strong> <a href="tel:09508447404">09508447404</a></li>
+                <li><strong>Facebook Page:</strong> <a href="https://www.facebook.com/profile.php?id=61575825275200" target="_blank">ModernKusina</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Kusina. All rights reserved.</p>
+    </footer>
+</body>
+</html>

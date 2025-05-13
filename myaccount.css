@@ -1,0 +1,39 @@
+/* Styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #f8f8f8; /* Or your desired background color */
+}
+
+/* Styles for the logo */
+.navbar .logo {
+    font-family: Helvetica, sans-serif; /* Apply the Pacifico font */
+    color: #dc3545; /* Example red color (you can adjust the hex code) */
+    font-size: 1.6rem; /* Adjust the font size as needed */
+    text-decoration: none; /* Remove default link underline if it's an <a> tag */
+}
+
+.navbar .logo a {
+    text-decoration: none; /* Remove default link underline */
+    color: inherit; /* Inherit the color from the parent .logo div */
+}
+
+/* Styles for the navigation links */
+.navbar .nav-links a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #333; /* Default link color */
+    font-family: sans-serif; /* Or your desired default font */
+}
+
+.navbar .nav-links a.account-link {
+    color: #ff6f61; /* Example "My Account" color */
+    /* You might want to adjust the font-family here if "My Account" should also be Pacifico */
+    /* font-family: 'Pacifico', cursive; */
+}
+
+.navbar .nav-links a.account-link i {
+    margin-right: 5px;
+}

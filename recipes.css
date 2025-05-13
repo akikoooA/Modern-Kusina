@@ -1,0 +1,146 @@
+  /* Updated CSS for dynamic content */
+  .recipe-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.recipe-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #C40000;
+    display: flex; /* Use flexbox to control layout */
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Center items horizontally */
+}
+.recipe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+.recipe-item h3 {
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.recipe-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Allow description to take up available space */
+}
+.recipe-item button {
+    background-color: #C40000;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push button to the bottom */
+}
+.recipe-item button:hover {
+    background-color: #ad0000;
+}
+
+/* Food Options Styling */
+.food-options {
+    text-align: center;
+    padding: 20px;
+}
+
+.food-options h2 {
+    color: #C40000;
+    font-family: Arial, sans-serif;
+    margin-bottom: 15px;
+}
+
+.food-options-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.food-options-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #C40000;
+    border: 2px solid #C40000;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0.5rem;
+}
+
+.food-options-links a:hover {
+    background-color: #C40000;
+    color: white;
+}
+
+/* Updated Welcome Section Styling */
+.welcome-section {
+    background-image: url(mainbackground.jpg); /* Use the provided image */
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 160px;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    border-radius: 3px;
+}
+
+.welcome-section h1 {
+    /* font-family: 'Pacifico', cursive;  Removed Pacifico font */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white; /* Make font color white */
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: white; /* Make font color white */
+    text-align: center; /* Add this line to center the paragraph */
+    display: block; /* Ensure it behaves as a block element */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-section {
+background-image: url('mainbackground.jpg');
+background-position: center top;
+background-repeat: no-repeat;
+background-size: cover;
+padding: 160px;
+border-radius: 3px;
+color: white;
+text-align: center;
+position: relative;
+z-index: 1;
+}
