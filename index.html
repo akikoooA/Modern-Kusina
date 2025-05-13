@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Kusina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f5;
+            color: #333;
+        }
+        h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Gives a bolder and modern look */
+    letter-spacing: 1px; /* Adds some spacing for clarity */
+}
+
+        
+        .recipe-card, .expert-advice-content, .expert-advice-benefits-link {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+        .recipe-card:hover, .expert-advice-benefits-link:hover {
+            transform: scale(1.03);
+        }
+        .navbar {
+            background-color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .navbar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #b83239;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #b83239;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Modern Kusina</div>
+        <nav class="nav-links">
+            <a href="mainwebsite.html">Home</a>
+            <a href="aboutus.html">About us </a>
+            <a href="Recipes.html">Recipes</a>
+            <a href="membership.html" class="membership-link">Membership</a>
+            <a href="myaccount.html" class="account-link"><i class="fas fa-user"></i> My Account</a>
+        </nav>
+    </header>
+
+  <!-- Hero Section: Welcome to Modern Kusina -->
+<section class="relative h-[100vh] bg-cover bg-center flex items-center justify-start text-left px-4" style="background-image: url('bg.png');">
+    <div class="max-w-3xl ml-8">
+      <h1 class="text-5xl md:text-6xl font-semibold mb-6 text-black">Welcome to Modern Kusina</h1>
+      <p class="text-lg md:text-xl text-black mb-6">
+        Discover trendy meals and budget-friendly recipes crafted for the modern Filipino kitchen. Explore flavors, simplify cooking, and bring joy to your table.
+      </p>
+      <a href="Recipes.html" class="inline-block bg-[#C40000] hover:bg-[#ad0000] text-white font-semibold py-3 px-6 rounded-xl transition duration-300 shadow-lg">
+        View Recipes
+      </a>
+    </div>
+  </section>
+  
+      
+
+    <!-- Recipe Section -->
+<div class="w-full bg-transparent border-none shadow-none transition-all overflow-hidden p-8">
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Recipe Image -->
+      <div class="md:w-1/2 relative">
+        <img
+          id="recipe-image"
+          src="pic.png"
+          alt="Recipe image"
+          class="w-full h-[800px] object-cover rounded-xl shadow-lg"
+        />
+      </div>
+  
+      <!-- Recipe Content -->
+      <div class="md:w-1/2 p-6 md:p-12 flex flex-col justify-start items-start space-y-6">
+        <div>
+          <span class="bg-amber-500 text-white text-base md:text-lg px-3 py-1 rounded">
+            Editor's Pick
+          </span>
+        </div>
+        <h2
+          id="recipe-title"
+          class="text-5xl md:text-6xl font-bold text-gray-800 leading-tight"
+        >
+          Loading recipe...
+        </h2>
+        <p
+          id="recipe-description"
+          class="text-gray-700 text-xl md:text-2xl leading-relaxed max-w-2xl"
+        >
+          Please wait while we fetch a delicious recipe for you.
+        </p>
+        <a
+          id="recipe-link"
+          href="#"
+          target="_blank"
+          class="text-[#C40000] underline text-lg font-medium"
+        >
+          View Full Recipe
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Script to Fetch from API -->
+  <script>
+    async function fetchRecipe() {
+      const apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+  
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+  
+        if (data.meals) {
+          const recipe = data.meals[0];
+  
+          document.getElementById("recipe-image").src = recipe.strMealThumb;
+          document.getElementById("recipe-title").textContent = recipe.strMeal;
+  
+          // Shorten the instructions to a brief description
+          const fullInstructions = recipe.strInstructions || "";
+          const shortDescription = fullInstructions.length > 200
+            ? fullInstructions.substring(0, 200) + "..."
+            : fullInstructions;
+  
+          document.getElementById("recipe-description").textContent = shortDescription;
+          document.getElementById("recipe-link").href =
+            recipe.strSource || recipe.strYoutube || "#";
+        } else {
+          console.error("No recipe data found.");
+        }
+      } catch (error) {
+        console.error("Error fetching recipe:", error);
+      }
+    }
+  
+    window.onload = fetchRecipe;
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore International Cuisine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: left;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .country-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: #b83239;
+            margin-bottom: 40px;
+        }
+        .recipe-section {
+            margin-bottom: 40px;
+        }
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns per row */
+            gap: 20px;
+        }
+        .recipe-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .recipe-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        .recipe-card img:hover {
+            opacity: 0.8;
+        }
+        .recipe-card-content {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .recipe-card h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #333;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+        .recipe-card h4:hover {
+            color: #b83239;
+        }
+        .recipe-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        /* Make the layout responsive for smaller screens */
+        @media (max-width: 1200px) {
+            .recipe-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+            }
+        }
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr; /* One column on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="explore-cuisine">
+            <h2 class="section-title">Explore International Cuisine</h2>
+
+            <!-- Italian Cuisine Section -->
+            <div class="recipe-section">
+                <div class="country-title">
+                    <h3>Italian Cuisine</h3>
+                </div>
+                <div class="recipe-grid" id="italian-recipes">
+                    <!-- Recipes will be loaded here -->
+                </div>
+            </div>
+
+            <!-- French Cuisine Section -->
+            <div class="recipe-section">
+                <div class="country-title">
+                    <h3>French Cuisine</h3>
+                </div>
+                <div class="recipe-grid" id="french-recipes">
+                    <!-- Recipes will be loaded here -->
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        // Function to fetch and display recipes
+        async function fetchRecipes(country, elementId) {
+            const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const recipeGrid = document.getElementById(elementId);
+                recipeGrid.innerHTML = '';
+
+                if (data.meals) {
+                    // Ensure only the first 6 meals are processed
+                    const mealsToDisplay = data.meals.slice(0, 6);
+
+                    mealsToDisplay.forEach(meal => {
+                        const recipeCard = document.createElement('div');
+                        recipeCard.classList.add('recipe-card');
+                        recipeCard.addEventListener('click', () => {
+                            window.location.href = `Recipes.html?id=${meal.idMeal}`;
+                        });
+
+                        recipeCard.innerHTML = `
+                            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+                            <div class="recipe-card-content">
+                                <h4>${meal.strMeal}</h4>
+                                <p>Click for recipe details</p>
+                            </div>
+                        `;
+                        recipeGrid.appendChild(recipeCard);
+                    });
+                } else {
+                    recipeGrid.innerHTML = `<p>No recipes found for ${country}.</p>`;
+                }
+            } catch (error) {
+                console.error("Error fetching recipes:", error);
+                const recipeGrid = document.getElementById(elementId);
+                recipeGrid.innerHTML = `<p>Failed to fetch recipes for ${country}. Please check your connection.</p>`;
+            }
+        }
+
+        // Fetch Italian and French recipes on page load
+        fetchRecipes('Italian', 'italian-recipes');
+        fetchRecipes('French', 'french-recipes');
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <section class="footer bg-red-700 text-white mt-12 py-10">
+        <div class="max-w-6xl mx-auto px-4 flex flex-wrap justify-between">
+            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                <h3 class="text-xl font-semibold mb-4">Follow Us on Social Media</h3>
+                <div class="flex space-x-6 text-2xl">
+                    <a href="https://www.facebook.com/profile.php?id=61575825275200"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="aboutus.html" class="hover:text-pink-200">About Us</a></li>
+                    <li><a href="membership.html" class="hover:text-pink-200">Membership</a></li>
+                    <li><a href="internationalfood.html" class="hover:text-pink-200">Recipes</a></li>
+                    <li><a href="#contact" class="hover:text-pink-200">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-6 border-t border-red-600 pt-4 text-sm">&copy; 2025 Modern Kusina. All rights reserved.</div>
+    </section>
+
+    <script src="main.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyD19Cr8Qbe81F2kz0w8ASACW_hUE1DBrRQ",
+          authDomain: "modernkusina-da7a9.firebaseapp.com",
+          projectId: "modernkusina-da7a9",
+          storageBucket: "modernkusina-da7a9.appspot.com",
+          messagingSenderId: "1074529326313",
+          appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
+          measurementId: "G-NLNP9BVB29"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+      
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+          if (!user) {
+            // Not logged in → redirect to login page
+            window.location.href = "login page.html";
+          }
+        });
+      </script>
+</body>
+</html>
