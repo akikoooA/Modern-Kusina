@@ -1,155 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Account - Modern Kusina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="Main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Kusina - Premium Membership</title>
+    <link rel="icon" href="MK Logo Design (1).png" type="image/png">
+    <link rel="stylesheet" href="Main.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AaCXRt9tNEkDG4DYwIlvJIBEkSl2D7E7LBAqoK6Lhcz22VZwKYI_EUno-h5xaLSEBtSr17APkRMiqIJl&currency=USD"></script>
     <style>
+        :root {
+            --primary-color: #ff4444;
+            --primary-dark: #e03333;
+            --text-color: #333;
+            --bg-color: #f8f8f8;
+        }
+
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
-        .navbar {
-            background-color: #ffffff;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: #C40000;
-        }
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #C40000;
-        }
+
         .membership-container {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
+            max-width: 1200px;
             margin: 40px auto;
-            overflow: hidden;
+            padding: 0 20px;
         }
-        .membership-header {
-            background-color: #FFD700;
-            padding: 20px;
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.premium {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .plan-header {
             text-align: center;
-            font-weight: bold;
+            margin-bottom: 24px;
         }
-        .features-section {
-            padding: 20px;
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
-        .features-section h3 {
-            font-size: 18px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 16px 0;
         }
+
+        .plan-price .currency {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        .plan-period {
+            font-size: 1rem;
+            color: #666;
+        }
+
         .feature-list {
             list-style: none;
             padding: 0;
+            margin: 0 0 24px 0;
         }
+
         .feature-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
             display: flex;
             align-items: center;
-            color: #555;
+            gap: 8px;
         }
-        .feature-list li .feature-icon {
-            color: #28a745;
-            margin-right: 10px;
-        }
-        .premium-features li {
-            font-weight: 600;
-        }
-        .premium-features .feature-icon {
-            color: #007bff;
-        }
-        .pricing-section {
-            background-color: #fafafa;
-            text-align: center;
-            padding: 20px;
-        }
-        .price {
-            color: #C40000;
-            font-size: 28px;
+
+        .feature-list li::before {
+            content: "✓";
+            color: #22c55e;
             font-weight: bold;
-            margin: 10px 0;
         }
-        .pricing-section button {
-            background-color: #C40000;
-            color: white;
-            padding: 12px 24px;
+
+        .payment-container {
+            margin-top: 24px;
+        }
+
+        .payment-button {
+            width: 100%;
+            padding: 12px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-        }
-        .pricing-section button:hover {
-            background-color: #a30000;
-        }
-        .footer {
-            background-color: #C40000;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 50px;
-        }
-        .footer-content {
+            transition: background-color 0.2s ease;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        .footer-links, .social-media {
-            width: 45%;
-        }
-        .footer-links h3, .social-media h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-        .footer-links a {
+
+        .payment-button.gcash {
+            background-color: #00adef;
             color: white;
-            text-decoration: none;
-            transition: color 0.3s;
+            margin-bottom: 12px;
         }
-        .footer-links a:hover {
-            color: #ffcccc;
+
+        .payment-button.gcash:hover {
+            background-color: #0099d4;
         }
-        .social-media-icons a {
-            color: white;
+
+        #paypal-button-container {
+            margin-top: 12px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-button {
+            position: absolute;
+            right: 16px;
+            top: 16px;
             font-size: 24px;
-            margin-right: 15px;
-            transition: color 0.3s;
+            cursor: pointer;
+            color: #666;
         }
-        .social-media-icons a:hover {
-            color: #ffcccc;
+
+        .gcash-details {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
         }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 15px;
-            border-top: 1px solid #a30000;
-            font-size: 14px;
+
+        .input-field {
+            margin-bottom: 16px;
+        }
+
+        .input-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .membership-container {
+                padding: 20px;
+            }
+
+            .plan-card {
+                padding: 24px;
+            }
         }
     </style>
 </head>
@@ -157,72 +216,143 @@
     <header class="navbar">
         <div class="logo">Modern Kusina</div>
         <nav class="nav-links">
-            <a href="mainwebsite.html">Home</a>
+            <a href="mainwebsite.html">International Foods</a>
             <a href="aboutus.html">About us</a>
             <a href="Recipes.html">Recipes</a>
-            <a href="membership.html">Membership</a>
-            <a href="myaccount.html"><i class="fas fa-user"></i> My Account</a>
+            <a href="membership.html" class="membership-link">Membership</a>
+            <a href="Comments.html">Kitchen Confessions</a>
+            <a href="recipeshare.html">Share Your Recipe</a>
         </nav>
     </header>
 
     <div class="membership-container">
-        <div class="membership-header">
-            <h2>Unlock More with Premium!</h2>
-        </div>
-        <div class="features-section">
-            <h3>Free Features</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">&#10003;</span> Browse basic recipes</li>
-                <li><span class="feature-icon">&#10003;</span> Save up to 5 favorite recipes</li>
-                <li><span class="feature-icon">&#10003;</span> Read-only access to community forum</li>
-                <li><span class="feature-icon">&#10003;</span> Weekly Filipino recipe newsletter</li>
-                <li><span class="feature-icon">&#10003;</span> Access to local ingredient alternatives</li>
-                <li><span class="feature-icon">&#10003;</span> Modern Filipino cooking tips</li>
-            </ul>
-        </div>
-        <div class="features-section premium-features">
-            <h3>Premium Features</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">&#10003;</span> Full access to all Filipino and international recipes</li>
-                <li><span class="feature-icon">&#10003;</span> Save unlimited favorite recipes</li>
-                <li><span class="feature-icon">&#10003;</span> Participate in community forum</li>
-                <li><span class="feature-icon">&#10003;</span> Monthly curated themed recipe packs</li>
-                <li><span class="feature-icon">&#10003;</span> AI-powered personalized recipe suggestions</li>
-                <li><span class="feature-icon">&#10003;</span> Early access to new features and events</li>
-                <li><span class="feature-icon">&#10003;</span> Priority support from our kitchen experts</li>
-            </ul>
-        </div>
-        <div class="pricing-section">
-            <p>Upgrade to Premium for:</p>
-            <p class="price">₱239 / month</p>
-            <button>Get Premium Now</button>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3 class="plan-name">Free Plan</h3>
+                    <div class="plan-price">
+                        <span class="currency">₱</span>0
+                        <span class="plan-period">/month</span>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>Basic recipe access</li>
+                    <li>Community read access</li>
+                    <li>Limited recipe uploads</li>
+                </ul>
+                <button class="payment-button" style="background-color: #eee; cursor: default">Current Plan</button>
+            </div>
+
+            <div class="plan-card premium">
+                <span class="premium-badge">PREMIUM</span>
+                <div class="plan-header">
+                    <h3 class="plan-name">Premium Plan</h3>
+                    <div class="plan-price">
+                        <span class="currency">₱</span>139
+                        <span class="plan-period">/month</span>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>Unlimited recipe access</li>
+                    <li>Upload your recipes</li>
+                    <li>AI recipe suggestions</li>
+                    <li>Early access features</li>
+                    <li>Priority support</li>
+                    <li>Ad-free experience</li>
+                </ul>
+                <div class="payment-container">
+                    <button class="payment-button gcash" onclick="openPaymentModal('gcash')">
+                        <img src="gcash-logo_brandlogos.net_1awr8.png" alt="GCash" height="24">
+                        Pay with GCash
+                    </button>
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <section class="footer">
-        <div class="footer-content">
-            <div class="social-media">
-                <h3>Follow Us on Social Media</h3>
-                <div class="social-media-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61575825275200" title="Facebook"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>GCash Payment</h2>
+            <div class="gcash-details">
+                <p><strong>Send payment to:</strong></p>
+                <p>Name: Ruth Zamora</p>
+                <p>GCash Number: 09972203053</p>
             </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="membership.html">Membership</a></li>
-                    <li><a href="Recipes.html">Recipes</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div class="input-field">
+                <label>Your GCash Number</label>
+                <input type="text" id="gcashNumber" placeholder="09XX-XXX-XXXX">
             </div>
+            <div class="input-field">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="your@email.com">
+            </div>
+            <button class="payment-button gcash" onclick="processGCashPayment()">Complete Payment</button>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Modern Kusina. All rights reserved.</p>
-        </div>
-    </section>
+    </div>
+
+    <script>
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color: 'blue',
+                shape: 'rect',
+                label: 'pay'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '2.50' // USD equivalent of ₱139
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Payment successful! Welcome to Premium!');
+                    activatePremium();
+                });
+            }
+        }).render('#paypal-button-container');
+
+        function openPaymentModal(method) {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function processGCashPayment() {
+            const gcashNumber = document.getElementById('gcashNumber').value;
+            const email = document.getElementById('email').value;
+
+            if (!gcashNumber || !email) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            alert('Processing payment...');
+            setTimeout(() => {
+                alert('Payment successful! Welcome to Premium!');
+                closeModal();
+                activatePremium();
+            }, 1500);
+        }
+
+        function activatePremium() {
+            localStorage.setItem('premiumMember', 'true');
+            localStorage.setItem('premiumStartDate', new Date().toISOString());
+            window.location.reload();
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
