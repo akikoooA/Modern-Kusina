@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Modern Kusina - International Cuisine: A World of Flavor on Your Plate.</title>
+    <title>Modern Kusina - Recipe Sharing</title>
     <link rel="icon" href="MK Logo Design (1).png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Kusina - Recipe Sharing</title>
-        <link rel="stylesheet" href="Main.css" />
+    <link rel="stylesheet" href="Main.css" />
     <style>
-        /* Your existing styles remain unchanged */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f5f5f5;
@@ -16,29 +14,24 @@
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-
         .page-title {
             text-align: center;
             margin-bottom: 3rem;
         }
-
         .page-title h1 {
             font-size: 2.5rem;
             color: #333;
             margin-bottom: 0.5rem;
         }
-
         .page-title p {
             color: #666;
             font-size: 1.1rem;
         }
-
         .recipe-form {
             background: white;
             border-radius: 12px;
@@ -46,16 +39,13 @@
             margin-bottom: 3rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
         .form-content {
             display: flex;
             gap: 2rem;
         }
-
         .image-upload {
             flex: 0 0 40%;
         }
-
         .image-preview-container {
             width: 100%;
             height: 400px;
@@ -69,33 +59,27 @@
             background: #f9f9f9;
             transition: border-color 0.3s;
         }
-
         .image-preview-container:hover {
             border-color: #ff4444;
         }
-
         .image-preview {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: none;
         }
-
         .form-fields {
             flex: 0 0 60%;
         }
-
         .form-group {
             margin-bottom: 1.5rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: #333;
             font-weight: 500;
         }
-
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -105,18 +89,15 @@
             font-size: 1rem;
             transition: border-color 0.3s;
         }
-
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #ff4444;
         }
-
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
-
         .submit-button {
             background: #ff4444;
             color: white;
@@ -129,21 +110,17 @@
             transition: background-color 0.3s;
             width: 100%;
         }
-
         .submit-button:hover {
             background: #ff2222;
         }
-
         .community-recipes {
             margin-top: 3rem;
         }
-
         .community-recipes h2 {
             font-size: 2rem;
             color: #333;
             margin-bottom: 2rem;
         }
-
         .recipe-card {
             background: white;
             border-radius: 12px;
@@ -151,39 +128,32 @@
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
         .recipe-content {
             display: flex;
             min-height: 300px;
         }
-
         .recipe-image {
             flex: 0 0 40%;
             background-size: cover;
             background-position: center;
         }
-
         .recipe-details {
             flex: 0 0 60%;
             padding: 2rem;
         }
-
         .recipe-title {
             font-size: 1.5rem;
             color: #333;
             margin-bottom: 1rem;
         }
-
         .recipe-author {
             color: #666;
             margin-bottom: 0.5rem;
         }
-
         .recipe-email {
             color: #666;
             margin-bottom: 1rem;
         }
-
         .recipe-description {
             color: #444;
             line-height: 1.6;
@@ -192,7 +162,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
         }
-
         .recipe-instructions {
             margin-top: 1rem;
             color: #444;
@@ -202,7 +171,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
         }
-
         .no-recipes {
             text-align: center;
             padding: 3rem;
@@ -210,11 +178,9 @@
             border-radius: 12px;
             color: #666;
         }
-
         #fileInput {
             display: none;
         }
-
         .footer {
             background-color: #000;
             color: #fff;
@@ -228,40 +194,34 @@
             align-items: start;
             text-align: left;
         }
-
         .footer h2 {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: #fff;
         }
-
         .footer p {
             font-size: 0.9rem;
             opacity: 0.8;
             margin: 0 0 25px 0;
             line-height: 1.7;
         }
-
         .footer-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
             align-items: flex-start;
         }
-
         .footer-links a {
             color: #fff;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-
         .footer-links a:hover {
             text-decoration: underline;
             color: #ddd;
         }
-
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -269,72 +229,58 @@
             gap: 15px;
             font-size: 0.9rem;
         }
-
         .social-links-vertical {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .facebook-link {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
-
         .facebook-link img {
             width: 24px;
             height: auto;
             margin-bottom: 5px;
         }
-
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
             .form-content {
                 flex-direction: column;
             }
-            
             .image-upload, .form-fields {
                 flex: 0 0 100%;
             }
-            
             .image-preview-container {
                 height: 300px;
             }
-
             .recipe-content {
                 flex-direction: column;
             }
-            
             .recipe-image {
                 height: 200px;
                 flex: 0 0 200px;
             }
-            
             .recipe-details {
                 flex: 1;
             }
-
             .footer {
                 grid-template-columns: 1fr 1fr;
                 text-align: center;
             }
-            
             .footer > div {
                 margin-bottom: 30px;
             }
         }
-
         @media (max-width: 480px) {
             .footer {
                 grid-template-columns: 1fr;
@@ -370,33 +316,27 @@
                         <input type="file" id="fileInput" accept="image/*">
                     </div>
                 </div>
-
                 <div class="form-fields">
                     <div class="form-group">
                         <label for="authorName">Your Name</label>
                         <input type="text" id="authorName" placeholder="Enter your name">
                     </div>
-
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="Enter your email">
                     </div>
-
                     <div class="form-group">
                         <label for="recipeTitle">Recipe Title</label>
                         <input type="text" id="recipeTitle" placeholder="What's your recipe called?">
                     </div>
-
                     <div class="form-group">
                         <label for="recipeDescription">Short Description</label>
                         <textarea id="recipeDescription" placeholder="Tell us about your dish..."></textarea>
                     </div>
-
                     <div class="form-group">
                         <label for="recipeInstructions">Recipe Instructions</label>
                         <textarea id="recipeInstructions" placeholder="List your ingredients and steps..."></textarea>
                     </div>
-
                     <button class="submit-button" id="uploadButton">Share Recipe</button>
                 </div>
             </div>
@@ -420,7 +360,6 @@
                 <a href="https://www.facebook.com/profile.php?id=61575825275200" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
         </div>
-
         <div class="footer-links">
             <h2>Explore</h2>
             <a href="Recipes.html">Recipes</a>
@@ -428,54 +367,31 @@
             <a href="mainwebsite.html">Popular Cuisines</a>
             <a href="Comments.html">Kitchen Confessions</a>
         </div>
-
         <div class="footer-links">
             <h2>Membership</h2>
             <a href="membership.html">Membership Benefits</a>
             <a href="aboutus.html">About Us</a>
         </div>
-
         <div class="contact-info">
             <h2>Modern Kusina</h2>
             <p>Bringing global flavors to your kitchen with <br> authentic, easy to follow recipes from <br>around the world.</p>
         </div>
     </footer>
 
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyD19Cr8Qbe81F2kz0w8ASACW_hUE1DBrRQ",
-          authDomain: "modernkusina-da7a9.firebaseapp.com",
-          projectId: "modernkusina-da7a9",
-          storageBucket: "modernkusina-da7a9.appspot.com",
-          messagingSenderId: "1074529326313",
-          appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
-          measurementId: "G-NLNP9BVB29"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // DOM elements
+    <script>
         const fileInput = document.getElementById('fileInput');
         const imagePreviewContainer = document.getElementById('imagePreviewContainer');
         const imagePreview = document.getElementById('imagePreview');
         const imagePreviewText = document.querySelector('.image-preview-text');
         const uploadButton = document.getElementById('uploadButton');
-
-        // Form fields
         const authorNameInput = document.getElementById('authorName');
         const emailInput = document.getElementById('email');
         const recipeTitleInput = document.getElementById('recipeTitle');
         const recipeDescriptionInput = document.getElementById('recipeDescription');
         const recipeInstructionsInput = document.getElementById('recipeInstructions');
+        const recipesContainer = document.getElementById('recipesContainer');
+        const noRecipesElement = document.getElementById('noRecipes');
 
-        // Image upload preview
         imagePreviewContainer.addEventListener('click', () => {
             fileInput.click();
         });
@@ -493,8 +409,11 @@
             }
         });
 
-        // Recipe submission to Firestore
-        uploadButton.addEventListener('click', async () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRecipes();
+        });
+
+        uploadButton.addEventListener('click', () => {
             const authorName = authorNameInput.value.trim();
             const email = emailInput.value.trim();
             const recipeTitle = recipeTitleInput.value.trim();
@@ -502,27 +421,32 @@
             const recipeInstructions = recipeInstructionsInput.value.trim();
             const recipeImage = imagePreview.src;
 
-            if (!authorName || !recipeTitle || !recipeDescription || !recipeImage || recipeImage === window.location.href) {
+            if (!authorName || !recipeTitle || !recipeDescription || !recipeImage) {
                 alert('Please fill in all required fields and upload an image');
                 return;
             }
 
-            try {
-                await addDoc(collection(db, "recipes"), {
-                    author: authorName,
-                    email: email,
-                    title: recipeTitle,
-                    description: recipeDescription,
-                    instructions: recipeInstructions,
-                    image: recipeImage,
-                    date: serverTimestamp()
-                });
-                resetForm();
-                loadRecipes();
-            } catch (error) {
-                alert("Error uploading recipe: " + error.message);
-            }
+            const recipe = {
+                id: Date.now(),
+                author: authorName,
+                email: email,
+                title: recipeTitle,
+                description: recipeDescription,
+                instructions: recipeInstructions,
+                image: recipeImage,
+                date: new Date().toISOString()
+            };
+
+            saveRecipe(recipe);
+            resetForm();
+            loadRecipes();
         });
+
+        function saveRecipe(recipe) {
+            let recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+            recipes.unshift(recipe);
+            localStorage.setItem('recipes', JSON.stringify(recipes));
+        }
 
         function resetForm() {
             authorNameInput.value = '';
@@ -535,109 +459,43 @@
             imagePreviewText.style.display = 'block';
         }
 
-        // Load recipes from Firestore
-        async function loadRecipes() {
-            const recipesContainer = document.getElementById('recipesContainer');
-            const noRecipesElement = document.getElementById('noRecipes');
-            recipesContainer.innerHTML = '';
-            let q = query(collection(db, "recipes"), orderBy("date", "desc"));
-            const querySnapshot = await getDocs(q);
-
-            if (querySnapshot.empty) {
+        function loadRecipes() {
+            const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+            
+            if (recipes.length === 0) {
                 noRecipesElement.style.display = 'block';
-                recipesContainer.innerHTML = noRecipesElement.outerHTML;
                 return;
             }
 
             noRecipesElement.style.display = 'none';
-
-            // ====== REMOVE ALL EXISTING RECIPES FROM FIRESTORE ======
-            // WARNING: This will delete all recipes in the "recipes" collection!
-            for (const docSnap of querySnapshot.docs) {
-                await deleteDoc(doc(db, "recipes", docSnap.id));
-            }
-            // After deletion, reload to show empty state
-            recipesContainer.innerHTML = noRecipesElement.outerHTML;
-            noRecipesElement.style.display = 'block';
+            recipesContainer.innerHTML = '';
+            
+            recipes.forEach(recipe => {
+                const recipeCard = createRecipeCard(recipe);
+                recipesContainer.appendChild(recipeCard);
+            });
         }
 
-        // Edit recipe
-        function startEditRecipe(id, card) {
-            const title = card.querySelector('.recipe-title').textContent;
-            const author = card.querySelector('.recipe-author').textContent.replace('By: ', '');
-            const email = card.querySelector('.recipe-email') ? card.querySelector('.recipe-email').textContent.replace('Email: ', '') : '';
-            const description = card.querySelector('.recipe-description').textContent;
-            const instructions = card.querySelector('.recipe-instructions p').textContent;
-            const image = card.querySelector('.recipe-image').style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-
-            // Fill form with current values
-            authorNameInput.value = author;
-            emailInput.value = email;
-            recipeTitleInput.value = title;
-            recipeDescriptionInput.value = description;
-            recipeInstructionsInput.value = instructions;
-            imagePreview.src = image;
-            imagePreview.style.display = 'block';
-            imagePreviewText.style.display = 'none';
-
-            // Change upload button to "Update"
-            uploadButton.textContent = "Update Recipe";
-            uploadButton.onclick = async () => {
-                const updatedRecipe = {
-                    author: authorNameInput.value.trim(),
-                    email: emailInput.value.trim(),
-                    title: recipeTitleInput.value.trim(),
-                    description: recipeDescriptionInput.value.trim(),
-                    instructions: recipeInstructionsInput.value.trim(),
-                    image: imagePreview.src,
-                    date: serverTimestamp()
-                };
-                if (!updatedRecipe.author || !updatedRecipe.title || !updatedRecipe.description || !updatedRecipe.image) {
-                    alert('Please fill in all required fields and upload an image');
-                    return;
-                }
-                await updateDoc(doc(db, "recipes", id), updatedRecipe);
-                resetForm();
-                uploadButton.textContent = "Share Recipe";
-                uploadButton.onclick = defaultUploadHandler;
-                loadRecipes();
-            };
+        function createRecipeCard(recipe) {
+            const card = document.createElement('div');
+            card.className = 'recipe-card';
+            
+            card.innerHTML = `
+                <div class="recipe-content">
+                    <div class="recipe-image" style="background-image: url('${recipe.image}')"></div>
+                    <div class="recipe-details">
+                        <h3 class="recipe-title">${recipe.title}</h3>
+                        <p class="recipe-author">By: ${recipe.author}</p>
+                        ${recipe.email ? `<p class="recipe-email">Email: ${recipe.email}</p>` : ''}
+                        <p class="recipe-description">${recipe.description}</p>
+                        <div class="recipe-instructions">
+                            <p>${recipe.instructions}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return card;
         }
-
-        // Restore upload button default behavior
-        const defaultUploadHandler = async () => {
-            const authorName = authorNameInput.value.trim();
-            const email = emailInput.value.trim();
-            const recipeTitle = recipeTitleInput.value.trim();
-            const recipeDescription = recipeDescriptionInput.value.trim();
-            const recipeInstructions = recipeInstructionsInput.value.trim();
-            const recipeImage = imagePreview.src;
-
-            if (!authorName || !recipeTitle || !recipeDescription || !recipeImage || recipeImage === window.location.href) {
-                alert('Please fill in all required fields and upload an image');
-                return;
-            }
-
-            try {
-                await addDoc(collection(db, "recipes"), {
-                    author: authorName,
-                    email: email,
-                    title: recipeTitle,
-                    description: recipeDescription,
-                    instructions: recipeInstructions,
-                    image: recipeImage,
-                    date: serverTimestamp()
-                });
-                resetForm();
-                loadRecipes();
-            } catch (error) {
-                alert("Error uploading recipe: " + error.message);
-            }
-        };
-        uploadButton.onclick = defaultUploadHandler;
-
-        // Initial load
-        loadRecipes();
     </script>
 </body>
 </html>
