@@ -48,13 +48,7 @@
         .nav-links a:hover {
             color: #b83239;
         }
-
-       
-      
-
-       
-      
-
+        
         .main-content {
             display: flex;
             justify-content: center;
@@ -248,15 +242,15 @@
 </head>
 <body>
 
-  <header class="navbar">
+    <header class="navbar">
         <div class="logo">Modern Kusina</div>
         <nav class="nav-links">
             <a href="mainwebsite.html">International Foods</a>
             <a href="aboutus.html">About us </a>
             <a href="Recipes.html">Recipes</a>
             <a href="membership.html" class="membership-link">Membership</a>
-            <a href="Comments.html" >Kitchen Confessions</a>
-            <a href="recipeshare.html" >Share Your Recipe</a>
+            <a href="Comments.html">Kitchen Confessions</a>
+            <a href="recipeshare.html">Share Your Recipe</a>
         </nav>
     </header>
 
@@ -286,110 +280,108 @@
             <div class="comment-list-section">
                 <h2 class="comment-list-header">Community Comments (<span id="comment-count">0</span>)</h2>
                 <div class="comment-list" id="comment-list">
-                    <!-- Comments will be loaded here -->
-                </div>
+                    </div>
             </div>
         </div>
     </main>
-<!-- Firebase SDKs -->
-<script type="module">
-  // Import Firebase modules
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyASHJfEJF_vJGkYaPUAjqJu4hj2DAdMOr0",
-    authDomain: "modern-kusina.firebaseapp.com",
-    projectId: "modern-kusina",
-    storageBucket: "modern-kusina.appspot.com",
-    messagingSenderId: "387721623993",
-    appId: "1:387721623993:web:a1ced7169342e2c4c9de68",
-    measurementId: "G-4KXQ17T3WX"
-  };
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyASHJfEJF_vJGkYaPUAjqJu4hj2DAdMOr0",
+            authDomain: "modern-kusina.firebaseapp.com",
+            projectId: "modern-kusina",
+            storageBucket: "modern-kusina.appspot.com",
+            messagingSenderId: "387721623993",
+            appId: "1:387721623993:web:a1ced7169342e2c4c9de68",
+            measurementId: "G-4KXQ17T3WX"
+        };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-  // DOM elements
-  const userCommentInput = document.querySelector(".user-comment-input");
-  const userNameInput = document.querySelector(".user-name-input");
-  const publishButton = document.querySelector("#publish");
-  const commentListContainer = document.getElementById("comment-list");
-  const commentCountSpan = document.querySelector("#comment-count");
+        // DOM elements
+        const userCommentInput = document.querySelector(".user-comment-input");
+        const userNameInput = document.querySelector(".user-name-input");
+        const publishButton = document.querySelector("#publish");
+        const commentListContainer = document.getElementById("comment-list"); // Used the ID selector
+        const commentCountSpan = document.querySelector("#comment-count");
 
-  // Enable publish button when input is not empty
-  userCommentInput.addEventListener("input", () => {
-    publishButton.disabled = !userCommentInput.value.trim();
-  });
+        // Enable publish button when input is not empty
+        userCommentInput.addEventListener("input", () => {
+            publishButton.disabled = !userCommentInput.value.trim();
+        });
 
-  // Post a new comment to Firestore
-  async function postComment() {
-    const name = userNameInput.value.trim() || "Anonymous";
-    const message = userCommentInput.value.trim();
-    const image = name === "Anonymous" ? "anonymous.png" : "user.png";
+        // Post a new comment to Firestore
+        async function postComment() {
+            const name = userNameInput.value.trim() || "Anonymous";
+            const message = userCommentInput.value.trim();
+            const image = name === "Anonymous" ? "anonymous.png" : "user.png";
 
-    if (!message) return;
+            if (!message) return;
 
-    try {
-      await addDoc(collection(db, "comments"), {
-        name,
-        message,
-        image,
-        timestamp: serverTimestamp()
-      });
+            try {
+                await addDoc(collection(db, "comments"), {
+                    name,
+                    message,
+                    image,
+                    timestamp: serverTimestamp()
+                });
 
-      userCommentInput.value = "";
-      userNameInput.value = "";
-      publishButton.disabled = true;
+                userCommentInput.value = "";
+                userNameInput.value = "";
+                publishButton.disabled = true;
 
-      loadComments(); // Refresh comments
-    } catch (error) {
-      console.error("Error adding comment: ", error);
-    }
-  }
+                loadComments(); // Refresh comments
+            } catch (error) {
+                console.error("Error adding comment: ", error);
+            }
+        }
 
-  // Load comments from Firestore
-  async function loadComments() {
-    commentListContainer.innerHTML = "";
-    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
-    const querySnapshot = await getDocs(q);
+        // Load comments from Firestore
+        async function loadComments() {
+            commentListContainer.innerHTML = "";
+            const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
 
-    let count = 0;
-    querySnapshot.forEach((doc) => {
-      const { name, message, image, timestamp } = doc.data();
-      let date = "Unknown", time = "";
-      if (timestamp && typeof timestamp.toDate === "function") {
-        date = timestamp.toDate().toLocaleDateString();
-        time = timestamp.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      }
+            let count = 0;
+            querySnapshot.forEach((doc) => {
+                const { name, message, image, timestamp } = doc.data();
+                const date = timestamp?.toDate().toLocaleDateString() || "Unknown";
+                const time = timestamp?.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) || "";
 
-      const commentDiv = document.createElement("div");
-      commentDiv.classList.add("comment-item");
-      commentDiv.innerHTML = `
-        <img src="${image}" alt="${name}">
-        <div class="comment-content-area">
-          <div class="comment-header">
-            <h3>${name}</h3>
-            <span class="comment-date">${date} - ${time}</span>
-          </div>
-          <p class="comment-text">${message}</p>
-        </div>
-      `;
-      commentListContainer.appendChild(commentDiv);
-      count++;
-    });
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment-item");
+                commentDiv.innerHTML = `
+                    <img src="${image}" alt="${name}">
+                    <div class="comment-content-area">
+                        <div class="comment-header">
+                            <h3>${name}</h3>
+                            <span class="comment-date">${date} - ${time}</span>
+                        </div>
+                        <p class="comment-text">${message}</p>
+                        <div class="comment-actions-secondary">
+                            <button>Like</button>
+                            <button>Reply</button>
+                        </div>
+                    </div>
+                `;
+                commentListContainer.appendChild(commentDiv);
+                count++;
+            });
 
-    commentCountSpan.textContent = count;
-  }
+            commentCountSpan.textContent = count;
+        }
 
-  publishButton.addEventListener("click", postComment);
+        publishButton.addEventListener("click", postComment);
 
-  // Load comments on page load
-  window.addEventListener("DOMContentLoaded", loadComments);
-  
-</script>
+        // Load comments on page load
+        window.addEventListener("DOMContentLoaded", loadComments);
+    </script>
 
 </body>
 </html>
