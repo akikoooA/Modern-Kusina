@@ -23,7 +23,6 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema);
 
-// ✅ REGISTER
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -35,7 +34,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// ✅ LOGIN
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -48,6 +46,6 @@ app.post("/login", async (req, res) => {
   res.json({ token, user: { id: user._id, username: user.username, email: user.email } });
 });
 
-// ✅ START SERVER
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
