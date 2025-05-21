@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  font-family: monospace;
+  width: 500px;
+  box-shadow: 0 0 5px #000;
+}
+.head {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.text {
+  margin: 10px 0;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+.commentbox {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.commentbox > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  width: 100%;
+}
+.user {
+  border: none;
+  outline: none;
+  margin: 5px 0;
+  color: #808080;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.commentinput > input {
+  border: none;
+  padding: 10px;
+  padding-left: 0;
+  outline: none;
+  border-bottom: 2px solid blue;
+  margin-bottom: 10px;
+  width: 95%;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #808080;
+}
+
+.buttons button {
+  padding: 5px 10px;
+  background: lightgrey;
+  color: #808080;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Add this to your comment.css or the relevant CSS file for your "Meet Our Team" section */
+.meet-team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center image and text horizontally */
+  text-align: center;  /* Center the title/text under the image */
+}
+
+.meet-team-member img {
+  display: block;
+  margin: 0 auto 10px auto; /* Center image and add space below */
+  border-radius: 50%; /* Optional: make image round */
+  max-width: 150px;   /* Adjust as needed */
+  height: auto;
+}
