@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>recipes</title>
+    <title>Modern Kusina - International Cuisine: A World of Flavor on Your Plate.</title>
+    <link rel="icon" href="MK Logo Design (1).png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Updated CSS for dynamic content */
         .recipe-grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -105,7 +107,7 @@
 
         /* Updated Welcome Section Styling */
         .welcome-section {
-            background-image: url(mainbackground.jpg); /* Use the provided image */
+            background-image: url(recipebg.png); /* Updated to use the provided image */
             background-position: center top;
             background-repeat: no-repeat;
             background-size: cover;
@@ -130,7 +132,7 @@
         }
 
         .welcome-section h1 {
-            /* font-family: 'Pacifico', cursive;  Removed Pacifico font */
+            
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: white; /* Make font color white */
@@ -148,7 +150,7 @@
         }
 
         .welcome-section {
-  background-image: url('mainbackground.jpg');
+  background-image: url('recipebg.png');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -160,27 +162,372 @@
   z-index: 1;
 }
 
-    </style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .category-button.active {
+      background-color: #000;
+      color: #fff;
+    }
+    
+    .category-button {
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      color: #000;
+      background-color: #fff;
+    }
+    
+    .category-button:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .recipe-card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cooking-time {
+      display: flex;
+      align-items: center;
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    
+    .cooking-time svg {
+      margin-right: 0.5rem;
+    }
+    
+    .difficulty {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .difficulty-easy {
+      background-color: #e6f7e6;
+      color: #2e7d32;
+    }
+    
+    .difficulty-medium {
+      background-color: #fff8e1;
+      color: #ff8f00;
+    }
+    
+    .difficulty-hard {
+      background-color: #ffebee;
+      color: #c62828;
+    }
+    .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 30px 0;
+        font-family: 'Poppins', sans-serif;
+        border-top: 1px solid #222;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+        text-align: left;
+      }
+
+      .footer h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        
+        color: #fff;
+        
+      }
+
+      .footer p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin: 0 0 25px 0;
+        line-height: 1.7;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+        color: #ddd;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .social-links img {
+        width: 24px;
+        height: auto;
+      }
+
+      .social-links a {
+        color: #fff;
+        margin-right: 10px;
+        display: inline-flex;
+      }
+
+      .social-links a:hover {
+        opacity: 0.7;
+      }
+
+      .copyright-and-policies {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        text-align: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #222;
+      }
+
+      .copyright-and-policies p {
+        margin: 0;
+        text-align: center;
+        flex: 1 0 auto;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+
+      .copyright-and-policies .footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 30px;
+        margin-left: auto;
+      }
+
+      @media (max-width: 768px) {
+        .footer {
+          grid-template-columns: 1fr 1fr;
+          text-align: center;
+        }
+        .footer > div {
+          margin-bottom: 30px;
+        }
+        .copyright-and-policies {
+          flex-direction: column;
+        }
+        .copyright-and-policies .footer-links {
+          margin-left: 0;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer {
+          grid-template-columns: 1fr;
+        }
+      }.social-links-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+.facebook-link {
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center icon and text horizontally within the link */
+  text-align: center; /* Center the text below the icon */
+}
+
+.facebook-link img {
+  margin-bottom: 5px; /* Add some space between the icon and text */
+}
+
+.facebook-link a {
+  text-decoration: none; /* Remove underline from the link */
+}
+
+/* Featured recipe card styling */
+.featured-recipe {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.featured-recipe:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.featured-recipe .badge {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #000;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.featured-recipe .content {
+  padding: 1.5rem;
+}
+
+.featured-recipe h3 {
+  margin-top: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.featured-recipe p {
+  color: #555;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.featured-recipe .btn {
+  display: inline-block;
+  background-color: #C40000;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.featured-recipe .btn:hover {
+  background-color: #a10000;
+}
+.welcome-section {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Adjust as needed for your design */
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.text-content {
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 20px 40px;
+    text-align: left;
+    width: 40%;
+    z-index: 2;
+    background: rgba(0,0,0,0.25); /* Optional: subtle overlay for readability */
+    border-radius: 8px;
+}
+.welcome-section h1.relative,
+.welcome-section p.relative {
+    position: static;
+    z-index: auto;
+}
+@media (max-width: 900px) {
+    .text-content {
+        width: 70%;
+        left: 5%;
+        padding: 15px 10px;
+    }
+    .welcome-section {
+        height: 220px;
+    }
+}
+@media (max-width: 600px) {
+    .text-content {
+        width: 95%;
+        left: 2.5%;
+        padding: 10px 5px;
+    }
+    .welcome-section {
+        height: 160px;
+    }
+    .welcome-section h1 {
+        font-size: 1.3rem;
+    }
+    .welcome-section p {
+        font-size: 0.95rem;
+    }
+}
+    
+ </style>
 </head>
 <body>
-    <header class="navbar">
+  <header class="navbar">
         <div class="logo">Modern Kusina</div>
         <nav class="nav-links">
-            <a href="mainwebsite.html">Home</a>
-            <a href="aboutus.html">About us </a>        
+            <a href="mainwebsite.html">International Foods</a>
+            <a href="aboutus.html">About us </a>
             <a href="Recipes.html">Recipes</a>
             <a href="membership.html" class="membership-link">Membership</a>
-            <a href="myaccount.html" class="account-link"><i class="fas fa-user"></i> My Account</a>
+            <a href="Comments.html" >Kitchen Confessions</a>
+            <a href="recipeshare.html" >Share Your Recipe</a>
         </nav>
     </header>
 
+ 
 
   
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Featured Recipe</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -197,10 +544,10 @@
     
     <!-- Content -->
     <div class="relative z-10 flex flex-col justify-center items-start h-full p-6 md:p-20 max-w-4xl text-black">
-      <span class="bg-amber-500 text-white text-sm px-3 py-1 rounded mb-6 self-start">Editors Pick</span>
+      
       <h1 class="text-5xl md:text-6xl font-semibold mb-4 leading-tight">Green veggies with flavoured butter</h1>
       <p class="text-lg md:text-xl mb-8 max-w-3xl">
-        A refreshing and healthy twist on your classic greens, infused with rich, herbed butter to elevate the flavors. Perfect for any meal, this recipe will bring vibrant flavors and vibrant colors to your table.
+        A refreshing and healthy twist on your classic greens, infused with rich, herbed butter to elevate the flavors. Perfect for any meal, this recipe<br> will bring vibrant flavors and vibrant colors to your table.
       </p>
     </div>
   </section>
@@ -208,123 +555,818 @@
 </body>
 </html>
 
-    
-    
-    
-    
-    
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-black mb-4">Food Categories</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">Discover delicious recipes from around the world. Select a category to explore.</p>
+            <div class="mt-8 flex flex-wrap justify-center">
+                <button class="category-button active" data-category="Beef">Beef</button>
+                <button class="category-button" data-category="Chicken">Chicken</button>
+                <button class="category-button" data-category="Seafood">Seafood</button>
+                <button class="category-button" data-category="Pasta">Pasta</button>
+                <button class="category-button" data-category="Vegetarian">Vegetarian</button>
+                <button class="category-button" data-category="Dessert">Dessert</button>
+                <button class="category-button" data-category="Breakfast">Breakfast</button>
+                <button class="category-button" data-category="Vegan">Vegan</button>
+                <button class="category-button" data-category="Side">Side Dishes</button>
+            </div>
+        </div>
 
+        <div id="recipe-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Recipes will be loaded here -->
+        </div>
 
-   
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recipe Container</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .category-button.active {
-      background-color: #000;
-      color: #fff;
-    }
-    .category-button {
-      padding: 0.5rem 1rem;
-      border-radius: 1.5rem;
-      margin: 0.5rem;
-      cursor: pointer;
-      border: 1px solid #e5e7eb;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
-    }
-    .category-button:hover {
-      background-color: #f3f4f6;
-      color: #000;
-    }
-  </style>
-</head>
-<body class="bg-gray-100 p-4">
+        <!-- Featured Filipino Recipe - Adobo -->
+        <section class="max-w-5xl mx-auto px-4 my-12">
+            <div class="featured-recipe flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    <img src="Title (2).png" alt="Filipino Adobo" class="w-full h-full object-cover">
+                </div>
+                <div class="content md:w-1/2">
+                    <span class="badge">Editor's Pick</span>
+                    <h3>Filipino Adobo</h3>
+                    <p>Adobo is a popular Filipino dish that features meat (usually pork or chicken) marinated and braised in a savory-sour mixture of soy sauce, vinegar, black peppercorns, garlic, and bay leaves.</p>
+                    <a href="https://panlasangpinoy.com/filipino-food-pork-adobo-recipe/" class="btn" target="_blank">View Recipe</a>
+                </div>
+            </div>
+        </section>
 
-  <div class="container mx-auto mt-12"> <!-- Added margin-top here -->
-    <div class="text-center mb-8">
-      <h2 class="text-2xl font-semibold text-gray-800">Trending Recipes</h2>
-      <div class="mt-4 flex justify-center flex-wrap">
-        <button class="category-button active" data-category="Beef">Beef</button>
-        <button class="category-button" data-category="Chicken">Chicken</button>
-        <button class="category-button" data-category="Dessert">Dessert</button>
-        <button class="category-button" data-category="Seafood">Seafood</button>
-      </div>
+        <!-- Cultivating Filipino Cuisine Section -->
+        <section style="margin-top: 60px;">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold text-[#000000] mb-4">Cultivating Filipino Cuisine</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">Experience the vibrant flavors of the Philippines with these classic and modern Filipino dishes.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
+                <!-- Chicken Adobo -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/chicken-adobo-recipe/" target="_blank">
+                        <img src="https://panlasangpinoy.com/wp-content/uploads/2018/11/Chicken-Adobo-Recipe.jpg" alt="Chicken Adobo" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Chicken Adobo</h3>
+                        <p class="text-gray-700 text-sm mb-3">A classic Filipino dish with chicken marinated in soy sauce, vinegar, and garlic, then simmered to perfection.</p>
+                    </div>
+                </div>
+                <!-- Sinigang na Baboy -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/sinigang-na-baboy-with-gabi/" target="_blank">
+                        <img src="https://panlasangpinoy.com/wp-content/uploads/2018/11/Sinigang-na-Baboy-Recipe.jpg" alt="Sinigang na Baboy" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Sinigang na Baboy</h3>
+                        <p class="text-gray-700 text-sm mb-3">A tangy and savory pork soup with vegetables, flavored with tamarind.</p>
+                    </div>
+                </div>
+                <!-- Lechon Kawali -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/lechon-kawali/" target="_blank">
+                        <img src="Lechon-Kawali-Recipe.jpg" alt="Lechon Kawali" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Lechon Kawali</h3>
+                        <p class="text-gray-700 text-sm mb-3">Crispy fried pork belly served with a savory dipping sauce.</p>
+                    </div>
+                </div>
+                <!-- Pancit Canton -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/pancit-canton-recipe/" target="_blank">
+                        <img src="Pancit-Canton-Recipe-Panlasang-Pinoy.jpg" alt="Pancit Canton" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Pancit Canton</h3>
+                        <p class="text-gray-700 text-sm mb-3">Stir-fried noodles with vegetables, shrimp, and pork, seasoned with soy sauce and calamansi.</p>
+                    </div>
+                </div>
+                <!-- Bulalo -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/bulalo-stewed-beef-shank/" target="_blank">
+                        <img src="Beef-Shank-Soup-Recipe (1).webp" alt="Bulalo" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Bulalo</h3>
+                        <p class="text-gray-700 text-sm mb-3">A comforting beef shank soup with bone marrow, corn, and vegetables, simmered until tender.</p>
+                    </div>
+                </div>
+                <!-- Kare Kare -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/kare-kare-recipe/" target="_blank">
+                        <img src="how-to-cook-kare-kare.jpg" alt="Kare Kare" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Kare Kare</h3>
+                        <p class="text-gray-700 text-sm mb-3">A rich peanut stew with oxtail, tripes, and vegetables, served with bagoong (shrimp paste).</p>
+                    </div>
+                </div>
+                <!-- Lumpiang Shanghai -->
+                <div class="recipe-card">
+                    <a href="https://panlasangpinoy.com/filipino-lumpia-recipe/" target="_blank">
+                        <img src="longanisa-lumpiang-shanghai.jpg" alt="Lumpiang Shanghai" class="w-full h-48 object-cover" />
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Lumpiang Shanghai</h3>
+                        <p class="text-gray-700 text-sm mb-3">Filipino-style spring rolls filled with ground pork, carrots, and spices, fried until golden.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick and Easy Meal Hack Section -->
+        <section style="margin-top: 40px;">
+            <div class="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
+                <!-- Image Left -->
+                <div class="md:w-1/3 w-full flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+                    <a href="https://victoriarosefoodie.com/chicken-pastil-recipe/" target="_blank">
+                        <img src="FIL08359-scaled.webp" alt="Chicken Pastil" class="rounded-lg w-full object-cover h-48" />
+                    </a>
+                </div>
+                <!-- Text Right -->
+                <div class="md:w-2/3 w-full">
+                    <h2 class="text-2xl font-bold text-[#000000] mb-2">Quick & Easy Meal Hack: Chicken Pastil</h2>
+                    <p class="text-gray-700 mb-3">
+                        <strong>Chicken Pastil</strong> is a budget-friendly, filling, and delicious Filipino rice meal. It features flavorful shredded chicken sautéed with spices, served over steamed rice, and topped with a savory sauce. 
+                        <br><br>
+                        <span class="text-green-700 font-semibold">Why it's a life hack:</span> It's cheap, easy to prepare in bulk, and perfect for busy days or packed lunches. Just wrap it in banana leaves or foil for a grab-and-go meal!
+                    </p>
+                    <a href="https://victoriarosefoodie.com/chicken-pastil-recipe/" target="_blank" class="inline-block bg-[#000000] text-white px-5 py-2 rounded hover:bg-red-700 transition">See Full Recipe</a>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div id="recipe-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4"></div>
-  </div>
-
-  <script>
-    const categoryButtons = document.querySelectorAll('.category-button');
-    const recipeContainer = document.getElementById('recipe-container');
-
-    async function loadRecipes(category = 'Beef') {
-      try {
-        const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        const meals = data.meals;
-
-        recipeContainer.innerHTML = ''; // Clear previous recipes
-
-        meals.slice(0, 10).forEach(meal => {
-          const card = document.createElement('div');
-          card.className = 'recipe-card flex-shrink-0 w-64 bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01]';
-          card.innerHTML = `
-            <div class="relative">
-              <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="w-full h-40 object-cover rounded-t-lg" />
+    <footer class="footer">
+        <div class="social-links-vertical">
+            <h2>Follow Us</h2>
+            <div class="facebook-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/30px-2021_Facebook_icon.svg.png" alt="Facebook Logo">
+                <a href="https://www.facebook.com/profile.php?id=61575825275200" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
-            <div class="p-4">
-              <h2 class="text-lg font-semibold text-gray-800">${meal.strMeal}</h2>
-              <p class="text-sm text-gray-600">Category: ${category}</p>
-              <a href="https://www.themealdb.com/meal/${meal.idMeal}" target="_blank" class="text-blue-600 text-sm mt-2 inline-block">View Recipe</a>
-            </div>
-          `;
-          recipeContainer.appendChild(card);
+        </div>
+        <div class="footer-links">
+            <h2>Explore</h2>
+            <a href="Recipes.html">Recipes</a>
+            <a href="Recipes.html">Categories</a>
+            <a href="mainwebsite.html">Popular Cuisines</a>
+            <a href="Comments.html">Kitchen Confessions</a>
+        </div>
+        <div class="footer-links">
+            <h2>Membership</h2>
+            <a href="membership.html">Membership Benefits</a>
+            <a href="aboutus.html">About Us</a>
+        </div>
+        <div class="contact-info">
+            <h2>Modern Kusina</h2>
+            <p>Bringing global flavors to your kitchen with <br> authentic, easy to follow recipes from <br>around the world.</p>
+        </div>
+    </footer>
+
+    <script>
+        const recipeData = {
+            "Beef": [
+                {
+                    "idMeal": "52874",
+                    "strMeal": "Beef and Mustard Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg",
+                    "description": "A classic British pie with tender beef cooked in a rich mustard sauce, topped with flaky pastry.",
+                    "time": "120 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52997",
+                    "strMeal": "Beef and Oyster pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg",
+                    "description": "A luxurious pie combining beef and oysters in a rich gravy, encased in buttery pastry.",
+                    "time": "150 mins",
+                    "difficulty": "hard"
+                },
+                {
+                    "idMeal": "53013",
+                    "strMeal": "Beef Bourguignon",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/vtqxtu1511784197.jpg",
+                    "description": "French classic of beef slow-cooked in red wine with mushrooms, onions, and bacon.",
+                    "time": "180 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52904",
+                    "strMeal": "Beef Brisket Pot Roast",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+                    "description": "Tender beef brisket slow-cooked with vegetables in a flavorful broth.",
+                    "time": "240 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52812",
+                    "strMeal": "Beef Dumpling Stew",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+                    "description": "Hearty stew with tender beef and fluffy dumplings in a rich gravy.",
+                    "time": "90 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "53026",
+                    "strMeal": "Beef Lo Mein",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+                    "description": "Chinese stir-fried noodles with tender beef and crisp vegetables.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52948",
+                    "strMeal": "Beef Rendang",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/bc8v651619789840.jpg",
+                    "description": "Indonesian spicy beef stew slow-cooked in coconut milk and spices.",
+                    "time": "240 mins",
+                    "difficulty": "hard"
+                },
+                {
+                    "idMeal": "52936",
+                    "strMeal": "Beef Wellington",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
+                    "description": "Prime beef fillet wrapped in mushroom duxelles and puff pastry.",
+                    "time": "90 mins",
+                    "difficulty": "hard"
+                }
+            ],
+            "Chicken": [
+                {
+                    "idMeal": "52940",
+                    "strMeal": "Chicken Congee",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1529446352.jpg",
+                    "description": "Comforting rice porridge with tender chicken and ginger.",
+                    "time": "60 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52956",
+                    "strMeal": "Chicken Handi",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+                    "description": "Creamy Indian chicken curry cooked in a traditional handi pot.",
+                    "time": "50 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52920",
+                    "strMeal": "Chicken Marengo",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/qpxvuq1511798906.jpg",
+                    "description": "French chicken dish with mushrooms, tomatoes, and white wine.",
+                    "time": "45 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52875",
+                    "strMeal": "Chicken Quinoa Greek Salad",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg",
+                    "description": "Healthy salad with grilled chicken, quinoa, and Greek flavors.",
+                    "time": "35 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52796",
+                    "strMeal": "Chicken Fajitas",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+                    "description": "Sizzling chicken strips with peppers and onions, served with tortillas.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52951",
+                    "strMeal": "General Tso's Chicken",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1529444113.jpg",
+                    "description": "Crispy chicken in a sweet and slightly spicy sauce.",
+                    "time": "40 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52993",
+                    "strMeal": "Honey Balsamic Chicken",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/kvbotn1581012881.jpg",
+                    "description": "Juicy chicken glazed with honey and balsamic vinegar.",
+                    "time": "35 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "53016",
+                    "strMeal": "Katsu Chicken curry",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/vwrpps1503068729.jpg",
+                    "description": "Japanese-style breaded chicken with rich curry sauce.",
+                    "time": "50 mins",
+                    "difficulty": "medium"
+                }
+            ],
+            "Seafood": [
+                {
+                    "idMeal": "52959",
+                    "strMeal": "Baked salmon with fennel & tomatoes",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+                    "description": "Oven-baked salmon with fresh fennel and cherry tomatoes.",
+                    "time": "35 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52819",
+                    "strMeal": "Cajun spiced fish tacos",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+                    "description": "Spicy fish tacos with fresh slaw and lime crema.",
+                    "time": "25 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52887",
+                    "strMeal": "Seafood fideuà",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg",
+                    "description": "Spanish noodle dish with mixed seafood and saffron.",
+                    "time": "45 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52944",
+                    "strMeal": "Escovitch Fish",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+                    "description": "Jamaican fried fish with spicy pickled vegetables.",
+                    "time": "40 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52946",
+                    "strMeal": "Garides Saganaki",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+                    "description": "Greek shrimp dish with tomatoes, feta, and ouzo.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52809",
+                    "strMeal": "Grilled Portuguese sardines",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/lpd4wy1614347943.jpg",
+                    "description": "Simple grilled sardines with lemon and olive oil.",
+                    "time": "20 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52918",
+                    "strMeal": "Japanese gohan rice",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+                    "description": "Japanese-style rice bowl with salmon and vegetables.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52836",
+                    "strMeal": "Saltfish and Ackee",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/vytypy1511883765.jpg",
+                    "description": "Jamaica's national dish with salted cod and ackee fruit.",
+                    "time": "50 mins",
+                    "difficulty": "medium"
+                }
+            ],
+            "Pasta": [
+                {
+                    "idMeal": "52771",
+                    "strMeal": "Spaghetti Carbonara",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg",
+                    "description": "Classic Roman pasta with eggs, cheese, pancetta, and pepper.",
+                    "time": "25 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52839",
+                    "strMeal": "Lasagna",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+                    "description": "Layered pasta with meat sauce, béchamel, and cheese.",
+                    "time": "90 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52844",
+                    "strMeal": "Pasta with Garlic and Oil",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/uuxvxy1511468047.jpg",
+                    "description": "Simple pasta with garlic, olive oil, and chili flakes.",
+                    "time": "15 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52955",
+                    "strMeal": "Prawn & Fennel Linguine",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/rvxxuy1468312893.jpg",
+                    "description": "Linguine with prawns and fresh fennel in a light sauce.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52819",
+                    "strMeal": "Rigatoni with sausage",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/qtqvys1468573168.jpg",
+                    "description": "Hearty rigatoni with Italian sausage in tomato sauce.",
+                    "time": "40 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52854",
+                    "strMeal": "Spicy Arrabiata Penne",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+                    "description": "Penne pasta in a spicy tomato and garlic sauce.",
+                    "time": "25 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52770",
+                    "strMeal": "Vegetable Shepherd's Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/w8umt11583268117.jpg",
+                    "description": "Vegetarian version with lentils and mashed potato topping.",
+                    "time": "60 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52978",
+                    "strMeal": "Venetian Duck Ragu",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/qvrwpt1511181864.jpg",
+                    "description": "Slow-cooked duck in a rich sauce served with pasta.",
+                    "time": "180 mins",
+                    "difficulty": "hard"
+                }
+            ],
+            "Vegetarian": [
+                {
+                    "idMeal": "52804",
+                    "strMeal": "Vegetable Shepherd's Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/w8umt11583268117.jpg",
+                    "description": "Comforting pie with lentils and mashed potato topping.",
+                    "time": "60 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52767",
+                    "strMeal": "Vegetable Curry",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xpryys1511813903.jpg",
+                    "description": "Spicy vegetable curry with coconut milk and rice.",
+                    "time": "45 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52785",
+                    "strMeal": "Dal fry",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg",
+                    "description": "Indian lentil dish with spices and herbs.",
+                    "time": "40 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52807",
+                    "strMeal": "Egg Drop Soup",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1529446137.jpg",
+                    "description": "Chinese-style soup with silky egg ribbons.",
+                    "time": "15 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52924",
+                    "strMeal": "Falafel",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xrttsx1487339558.jpg",
+                    "description": "Crispy chickpea fritters with tahini sauce.",
+                    "time": "40 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52862",
+                    "strMeal": "French Onion Soup",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg",
+                    "description": "Caramelized onion soup with cheesy bread topping.",
+                    "time": "60 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52929",
+                    "strMeal": "Timbits",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg",
+                    "description": "Canadian donut holes, perfect for breakfast or snacks.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52802",
+                    "strMeal": "Three Fish Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
+                    "description": "Pie with salmon, cod and smoked haddock in creamy sauce.",
+                    "time": "80 mins",
+                    "difficulty": "medium"
+                }
+            ],
+            "Dessert": [
+                {
+                    "idMeal": "52893",
+                    "strMeal": "Apple & Blackberry Crumble",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg",
+                    "description": "Classic British dessert with spiced fruit and crumbly topping.",
+                    "time": "60 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52928",
+                    "strMeal": "Banana Pancakes",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/sywswr1511383814.jpg",
+                    "description": "Fluffy pancakes with mashed banana in the batter.",
+                    "time": "20 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52961",
+                    "strMeal": "Chocolate Avocado Mousse",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/uttuxy1511382180.jpg",
+                    "description": "Rich chocolate mousse made with avocado for creaminess.",
+                    "time": "15 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52976",
+                    "strMeal": "Chocolate Souffle",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/twspvx1511784937.jpg",
+                    "description": "Light and airy chocolate dessert with molten center.",
+                    "time": "45 mins",
+                    "difficulty": "hard"
+                },
+                {
+                    "idMeal": "52768",
+                    "strMeal": "Hot Chocolate Fudge",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xrysxr1483568462.jpg",
+                    "description": "Decadent hot chocolate with fudge sauce and cream.",
+                    "time": "15 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52931",
+                    "strMeal": "Peach & Blueberry Grunt",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/ssxvup1511387476.jpg",
+                    "description": "Fruit dessert with dumplings steamed on top.",
+                    "time": "40 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52856",
+                    "strMeal": "Sticky Toffee Pudding",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xqqqtu1511637379.jpg",
+                    "description": "British classic with dates and toffee sauce.",
+                    "time": "90 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52899",
+                    "strMeal": "Tarte Tatin",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/ryspuw1511786688.jpg",
+                    "description": "French upside-down caramelized apple tart.",
+                    "time": "75 mins",
+                    "difficulty": "hard"
+                }
+            ],
+            "Breakfast": [
+                {
+                    "idMeal": "52965",
+                    "strMeal": "Breakfast Potatoes",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1550441882.jpg",
+                    "description": "Crispy potatoes with peppers and onions.",
+                    "time": "35 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52915",
+                    "strMeal": "English Breakfast",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
+                    "description": "Classic fry-up with eggs, bacon, sausages and more.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52982",
+                    "strMeal": "Granola with Berries",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xr0n4r1576789523.jpg",
+                    "description": "Homemade granola with yogurt and fresh berries.",
+                    "time": "45 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52990",
+                    "strMeal": "Huevos Rancheros",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wpprrp1511816493.jpg",
+                    "description": "Mexican eggs with tortillas, beans and salsa.",
+                    "time": "25 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52957",
+                    "strMeal": "Kedgeree",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg",
+                    "description": "British-Indian breakfast with smoked fish and rice.",
+                    "time": "40 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52964",
+                    "strMeal": "Pancakes",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg",
+                    "description": "Classic fluffy pancakes with maple syrup.",
+                    "time": "20 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52977",
+                    "strMeal": "Smoked Haddock Kedgeree",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1550441275.jpg",
+                    "description": "Spiced rice dish with smoked haddock and eggs.",
+                    "time": "50 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52966",
+                    "strMeal": "Spanish Tortilla",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/quuxsx1511476154.jpg",
+                    "description": "Thick omelette with potatoes and onions.",
+                    "time": "45 mins",
+                    "difficulty": "medium"
+                }
+            ],
+            "Vegan": [
+                {
+                    "idMeal": "52952",
+                    "strMeal": "Chickpea Fajitas",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/tvtxpq1511464705.jpg",
+                    "description": "Spicy chickpeas with peppers in tortillas.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52953",
+                    "strMeal": "Dahl with Coconut Milk",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/vxuyqx1511462685.jpg",
+                    "description": "Creamy lentil curry with coconut milk.",
+                    "time": "45 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52954",
+                    "strMeal": "Eggplant Adobo",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xrqqsq1511723571.jpg",
+                    "description": "Filipino-style eggplant in tangy sauce.",
+                    "time": "40 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52958",
+                    "strMeal": "Mushroom Risotto",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xvxxvy1511783525.jpg",
+                    "description": "Creamy rice dish with wild mushrooms.",
+                    "time": "50 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52960",
+                    "strMeal": "Peanut Butter Cookies",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1544384070.jpg",
+                    "description": "Classic cookies with peanut butter flavor.",
+                    "time": "25 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52962",
+                    "strMeal": "Spinach & Ricotta Cannelloni",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wspuvp1511303478.jpg",
+                    "description": "Pasta tubes filled with spinach and vegan ricotta.",
+                    "time": "60 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52963",
+                    "strMeal": "Sweet Potato Curry",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1550441147.jpg",
+                    "description": "Spicy curry with sweet potatoes and chickpeas.",
+                    "time": "45 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52967",
+                    "strMeal": "Vegetable Paella",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/1543774956.jpg",
+                    "description": "Spanish rice dish with seasonal vegetables.",
+                    "time": "55 mins",
+                    "difficulty": "medium"
+                }
+            ],
+            "Side": [
+                {
+                    "idMeal": "52969",
+                    "strMeal": "Baked Brie with Cranberries",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/qqwrus1511795849.jpg",
+                    "description": "Creamy baked brie with sweet cranberry topping.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52970",
+                    "strMeal": "Bread and Butter Pudding",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
+                    "description": "Classic British dessert made with bread and custard.",
+                    "time": "60 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52971",
+                    "strMeal": "Cheese and Onion Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wqurxy1511453156.jpg",
+                    "description": "Savory pie with cheddar cheese and onions.",
+                    "time": "75 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52972",
+                    "strMeal": "Chicken and Mushroom Pie",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/wyqqyv1468235028.jpg",
+                    "description": "Creamy chicken and mushroom filling in pastry.",
+                    "time": "80 mins",
+                    "difficulty": "medium"
+                },
+                {
+                    "idMeal": "52973",
+                    "strMeal": "French Fries",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/xuxypt1511553639.jpg",
+                    "description": "Crispy golden fries with a fluffy center.",
+                    "time": "30 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52974",
+                    "strMeal": "Garlic Mushrooms",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/pe0e8d1511796812.jpg",
+                    "description": "Sautéed mushrooms with garlic and herbs.",
+                    "time": "20 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52975",
+                    "strMeal": "Onion Rings",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/swttys1511385853.jpg",
+                    "description": "Crispy battered onion rings with dipping sauce.",
+                    "time": "25 mins",
+                    "difficulty": "easy"
+                },
+                {
+                    "idMeal": "52979",
+                    "strMeal": "Vegetable Chips",
+                    "strMealThumb": "https://www.themealdb.com/images/media/meals/0ngbho1511793081.jpg",
+                    "description": "Crispy baked vegetable chips with sea salt.",
+                    "time": "45 mins",
+                    "difficulty": "easy"
+                }
+            ]
+        };
+
+        const categoryButtons = document.querySelectorAll('.category-button');
+        const recipeContainer = document.getElementById('recipe-container');
+
+        function loadRecipes(category = 'Beef') {
+            recipeContainer.innerHTML = '';
+            
+            const recipes = recipeData[category] || [];
+            
+            if (recipes.length > 0) {
+                recipes.forEach(recipe => {
+                    const card = document.createElement('div');
+                    card.className = 'recipe-card';
+                    card.innerHTML = `
+                        <div class="relative">
+                            <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" class="w-full h-48 object-cover" />
+                        </div>
+                        <div class="p-4">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">${recipe.strMeal}</h2>
+                            <p class="text-gray-700 text-sm mb-3">${recipe.description}</p>
+                            <div class="cooking-time">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>${recipe.time}</span>
+                            </div>
+                            <div class="difficulty difficulty-${recipe.difficulty}">${recipe.difficulty}</div>
+                            <a href="https://www.themealdb.com/meal/${recipe.idMeal}" target="_blank" class="text-blue-600 text-sm mt-3 inline-block hover:underline">View Full Recipe</a>
+                        </div>
+                    `;
+                    recipeContainer.appendChild(card);
+                });
+            } else {
+                recipeContainer.innerHTML = '<p class="text-gray-600 col-span-full text-center py-8">No recipes found for this category.</p>';
+            }
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                
+                categoryButtons.forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                
+                loadRecipes(category);
+            });
         });
-      } catch (error) {
-        recipeContainer.innerHTML = '<p class="text-red-600">Failed to load recipes. Please try again later.</p>';
-        console.error('Error loading recipes:', error);
-      }
-    }
 
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const category = button.dataset.category;
-
-        categoryButtons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
-
-        loadRecipes(category);
-      });
-    });
-
-    loadRecipes(); // Load default category on initial page load
-  </script>
+        // Load initial recipes
+        loadRecipes();
+    </script>
 </body>
 </html>
-
-
-      
-   
-   
-      
-    
-
-    
-
-    
-</body>
-</html>
-

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Kusina - Kitchen Confessions</title>
+    <link rel="icon" href="MK Logo Design (1).png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="Main.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #b83239;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #b83239;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .community-header h1 {
+            font-size: 2.2em;
+            color: #b83239;
+            margin-bottom: 10px;
+        }
+
+        .community-header p {
+            color: #777;
+            font-size: 0.95em;
+        }
+
+        .comment-input-area {
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .comment-input-area img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .input-content {
+            flex-grow: 1;
+        }
+
+        .input-content h2 {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .user-name-input {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            outline: none;
+        }
+
+        .user-comment-input {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            outline: none;
+            resize: none;
+            min-height: 100px;
+        }
+
+        .comment-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .publish-button {
+            background-color: #b83239;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+
+        .publish-button:disabled {
+            background-color: #ddd;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        .comment-list-section {
+            margin-top: 30px;
+        }
+
+        .comment-list-header {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .comment-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .comment-content-area {
+            flex-grow: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .comment-header h3 {
+            font-size: 1em;
+            color: #333;
+            margin: 0;
+        }
+
+        .comment-date {
+            color: #777;
+            font-size: 0.8em;
+        }
+
+        .comment-text {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .comment-input-area {
+                flex-direction: column;
+            }
+
+            .comment-input-area img {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Modern Kusina</div>
+        <nav class="nav-links">
+            <a href="mainwebsite.html">International Foods</a>
+            <a href="aboutus.html">About us</a>
+            <a href="Recipes.html">Recipes</a>
+            <a href="membership.html" class="membership-link">Membership</a>
+            <a href="Comments.html">Kitchen Confessions</a>
+            <a href="recipeshare.html">Share Your Recipe</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="community-header">
+                <h1>Kitchen Confessions</h1>
+                <p>Share your culinary wins, flops, and everything in between with the Modern Kusina community!</p>
+            </div>
+
+            <div class="comment-input-area">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=default" alt="Your Avatar">
+                <div class="input-content">
+                    <h2>Share your thoughts:</h2>
+                    <input type="text" class="user-name-input" placeholder="Your Name (Optional)">
+                    <textarea class="user-comment-input" placeholder="Write your comment here..."></textarea>
+                    <div class="comment-actions">
+                        <button type="button" class="publish-button" disabled id="publish">Post Comment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-list-section">
+                <h2 class="comment-list-header">Community Comments (<span id="comment-count">0</span>)</h2>
+                <div class="comment-list" id="comment-list">
+                    <!-- Comments will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD19Cr8Qbe81F2kz0w8ASACW_hUE1DBrRQ",
+            authDomain: "modernkusina-da7a9.firebaseapp.com",
+            projectId: "modernkusina-da7a9",
+            storageBucket: "modernkusina-da7a9.appspot.com",
+            messagingSenderId: "1074529326313",
+            appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
+            measurementId: "G-NLNP9BVB29"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // DOM elements
+        const userCommentInput = document.querySelector(".user-comment-input");
+        const userNameInput = document.querySelector(".user-name-input");
+        const publishButton = document.querySelector("#publish");
+        const commentListContainer = document.getElementById("comment-list");
+        const commentCountSpan = document.getElementById("comment-count");
+
+        // Enable/disable publish button based on comment input
+        userCommentInput.addEventListener("input", () => {
+            publishButton.disabled = !userCommentInput.value.trim();
+        });
+
+        // Post comment function
+        async function postComment() {
+            const name = userNameInput.value.trim() || "Anonymous";
+            const message = userCommentInput.value.trim();
+            const avatarSeed = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${avatarSeed}`;
+
+            if (!message) return;
+
+            try {
+                await addDoc(collection(db, "kitchen_comments"), {
+                    name,
+                    message,
+                    avatar: avatarUrl,
+                    timestamp: serverTimestamp()
+                });
+
+                // Reset form
+                userCommentInput.value = "";
+                userNameInput.value = "";
+                publishButton.disabled = true;
+
+                // Refresh comments
+                await loadComments();
+            } catch (error) {
+                console.error("Error posting comment:", error);
+                alert("Failed to post comment. Please try again.");
+            }
+        }
+
+        // Load comments function (no sorting, so no "latest" on top)
+        async function loadComments() {
+            try {
+                commentListContainer.innerHTML = "";
+                const querySnapshot = await getDocs(collection(db, "kitchen_comments"));
+
+                let count = 0;
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const date = data.timestamp?.toDate() || new Date();
+
+                    const commentDiv = document.createElement("div");
+                    commentDiv.className = "comment-item";
+                    commentDiv.innerHTML = `
+                        <img src="${data.avatar}" alt="${data.name}'s avatar">
+                        <div class="comment-content-area">
+                            <div class="comment-header">
+                                <h3>${data.name}</h3>
+                                <span class="comment-date">${date.toLocaleDateString()} ${date.toLocaleTimeString()}</span>
+                            </div>
+                            <p class="comment-text">${data.message}</p>
+                        </div>
+                    `;
+                    commentListContainer.appendChild(commentDiv);
+                    count++;
+                });
+
+                commentCountSpan.textContent = count;
+            } catch (error) {
+                console.error("Error loading comments:", error);
+                commentListContainer.innerHTML = "<p>Failed to load comments. Please refresh the page.</p>";
+            }
+        }
+
+        // Event listeners
+        publishButton.addEventListener("click", postComment);
+        document.addEventListener("DOMContentLoaded", loadComments);
+
+        // Handle enter key in textarea
+        userCommentInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" && !e.shiftKey && !publishButton.disabled) {
+                e.preventDefault();
+                postComment();
+            }
+        });
+    </script>
+</body>
+</html>
