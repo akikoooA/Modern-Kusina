@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Modern Kusina - International Cuisine  A World of Flavor on Your Plate.</title>
+=======
+    <title>Modern Kusina - International Cuisine: A World of Flavor on Your Plate.</title>
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
     <link rel="icon" href="MK Logo Design (1).png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Main.css" />
@@ -212,7 +216,33 @@
             margin-bottom: 0.5rem;
         }
 
+<<<<<<< HEAD
        
+=======
+        .recipe-email {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .recipe-description {
+            color: #444;
+            line-height: 1.6;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .recipe-instructions {
+            margin-top: 1rem;
+            color: #444;
+            line-height: 1.6;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
 
         .no-recipes {
             text-align: center;
@@ -284,7 +314,11 @@
         .social-links-vertical {
             display: flex;
             flex-direction: column;
+<<<<<<< HEAD
             align-items: flex-start;
+=======
+            align-items: center;
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
         }
 
         .facebook-link {
@@ -453,6 +487,7 @@
     </footer>
 
     <script type="module">
+<<<<<<< HEAD
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
@@ -465,6 +500,21 @@
             messagingSenderId: "1074529326313",
             appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
             measurementId: "G-NLNP9BVB29"
+=======
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyD19Cr8Qbe81F2kz0w8ASACW_hUE1DBrRQ",
+          authDomain: "modernkusina-da7a9.firebaseapp.com",
+          projectId: "modernkusina-da7a9",
+          storageBucket: "modernkusina-da7a9.appspot.com",
+          messagingSenderId: "1074529326313",
+          appId: "1:1074529326313:web:d26fdae2e8bd77339c4c78",
+          measurementId: "G-NLNP9BVB29"
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
         };
 
         // Initialize Firebase
@@ -477,13 +527,21 @@
         const imagePreview = document.getElementById('imagePreview');
         const imagePreviewText = document.querySelector('.image-preview-text');
         const uploadButton = document.getElementById('uploadButton');
+<<<<<<< HEAD
+=======
+
+        // Form fields
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
         const authorNameInput = document.getElementById('authorName');
         const emailInput = document.getElementById('email');
         const recipeTitleInput = document.getElementById('recipeTitle');
         const recipeDescriptionInput = document.getElementById('recipeDescription');
         const recipeInstructionsInput = document.getElementById('recipeInstructions');
+<<<<<<< HEAD
         const recipesContainer = document.getElementById('recipesContainer');
         const noRecipesElement = document.getElementById('noRecipes');
+=======
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
 
         // Image upload preview
         imagePreviewContainer.addEventListener('click', () => {
@@ -504,8 +562,12 @@
         });
 
         // Recipe submission to Firestore
+<<<<<<< HEAD
         uploadButton.addEventListener('click', async (e) => {
             e.preventDefault();
+=======
+        uploadButton.addEventListener('click', async () => {
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
             const authorName = authorNameInput.value.trim();
             const email = emailInput.value.trim();
             const recipeTitle = recipeTitleInput.value.trim();
@@ -529,7 +591,11 @@
                     date: serverTimestamp()
                 });
                 resetForm();
+<<<<<<< HEAD
                 await loadRecipes();
+=======
+                loadRecipes();
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
             } catch (error) {
                 alert("Error uploading recipe: " + error.message);
             }
@@ -548,10 +614,16 @@
 
         // Load recipes from Firestore
         async function loadRecipes() {
+<<<<<<< HEAD
+=======
+            const recipesContainer = document.getElementById('recipesContainer');
+            const noRecipesElement = document.getElementById('noRecipes');
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
             recipesContainer.innerHTML = '';
             let q = query(collection(db, "recipes"), orderBy("date", "desc"));
             const querySnapshot = await getDocs(q);
 
+<<<<<<< HEAD
             // Always create or update the "no recipes" element
             let noDiv = document.getElementById('noRecipes');
             if (!noDiv) {
@@ -591,6 +663,101 @@
             });
         }
 
+=======
+            if (querySnapshot.empty) {
+                noRecipesElement.style.display = 'block';
+                recipesContainer.innerHTML = noRecipesElement.outerHTML;
+                return;
+            }
+
+            noRecipesElement.style.display = 'none';
+
+            // ====== REMOVE ALL EXISTING RECIPES FROM FIRESTORE ======
+            // WARNING: This will delete all recipes in the "recipes" collection!
+            for (const docSnap of querySnapshot.docs) {
+                await deleteDoc(doc(db, "recipes", docSnap.id));
+            }
+            // After deletion, reload to show empty state
+            recipesContainer.innerHTML = noRecipesElement.outerHTML;
+            noRecipesElement.style.display = 'block';
+        }
+
+        // Edit recipe
+        function startEditRecipe(id, card) {
+            const title = card.querySelector('.recipe-title').textContent;
+            const author = card.querySelector('.recipe-author').textContent.replace('By: ', '');
+            const email = card.querySelector('.recipe-email') ? card.querySelector('.recipe-email').textContent.replace('Email: ', '') : '';
+            const description = card.querySelector('.recipe-description').textContent;
+            const instructions = card.querySelector('.recipe-instructions p').textContent;
+            const image = card.querySelector('.recipe-image').style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+
+            // Fill form with current values
+            authorNameInput.value = author;
+            emailInput.value = email;
+            recipeTitleInput.value = title;
+            recipeDescriptionInput.value = description;
+            recipeInstructionsInput.value = instructions;
+            imagePreview.src = image;
+            imagePreview.style.display = 'block';
+            imagePreviewText.style.display = 'none';
+
+            // Change upload button to "Update"
+            uploadButton.textContent = "Update Recipe";
+            uploadButton.onclick = async () => {
+                const updatedRecipe = {
+                    author: authorNameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    title: recipeTitleInput.value.trim(),
+                    description: recipeDescriptionInput.value.trim(),
+                    instructions: recipeInstructionsInput.value.trim(),
+                    image: imagePreview.src,
+                    date: serverTimestamp()
+                };
+                if (!updatedRecipe.author || !updatedRecipe.title || !updatedRecipe.description || !updatedRecipe.image) {
+                    alert('Please fill in all required fields and upload an image');
+                    return;
+                }
+                await updateDoc(doc(db, "recipes", id), updatedRecipe);
+                resetForm();
+                uploadButton.textContent = "Share Recipe";
+                uploadButton.onclick = defaultUploadHandler;
+                loadRecipes();
+            };
+        }
+
+        // Restore upload button default behavior
+        const defaultUploadHandler = async () => {
+            const authorName = authorNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const recipeTitle = recipeTitleInput.value.trim();
+            const recipeDescription = recipeDescriptionInput.value.trim();
+            const recipeInstructions = recipeInstructionsInput.value.trim();
+            const recipeImage = imagePreview.src;
+
+            if (!authorName || !recipeTitle || !recipeDescription || !recipeImage || recipeImage === window.location.href) {
+                alert('Please fill in all required fields and upload an image');
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, "recipes"), {
+                    author: authorName,
+                    email: email,
+                    title: recipeTitle,
+                    description: recipeDescription,
+                    instructions: recipeInstructions,
+                    image: recipeImage,
+                    date: serverTimestamp()
+                });
+                resetForm();
+                loadRecipes();
+            } catch (error) {
+                alert("Error uploading recipe: " + error.message);
+            }
+        };
+        uploadButton.onclick = defaultUploadHandler;
+
+>>>>>>> 706e74af83f6954a57d8f67fb935d4a5e10dcabf
         // Initial load
         loadRecipes();
     </script>
