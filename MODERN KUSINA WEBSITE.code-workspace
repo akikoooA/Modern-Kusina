@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../recipeshare/project/.bolt"
+		},
+		{
+			"path": "../recipeshare/project/src"
+		},
+		{
+			"path": "../recipeshare/.bolt"
+		},
+		{
+			"path": "../recipeshare/src"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MODERN KUSINA WEBSITE",
+		"liveServer.settings.port": 5501
+	}
+}

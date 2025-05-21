@@ -1,6 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";import { auth } from './app.js';
+import { onAuthStateChanged } from "firebase/auth";
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    window.location.href = "mainwebsite.html";
+  }
+});
+
 
 
 const MEALDB_API_URL = "https://www.themealdb.com/api/json/v1/1/";
@@ -115,4 +123,5 @@ const db = getFirestore(app);
 
 // Export so you can use in other modules if needed
 export { auth, db };
+
 
