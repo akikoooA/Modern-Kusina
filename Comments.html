@@ -49,6 +49,15 @@
             color: #b83239;
         }
 
+<<<<<<< HEAD
+=======
+       
+      
+
+       
+      
+
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
         .main-content {
             display: flex;
             justify-content: center;
@@ -126,8 +135,12 @@
             box-sizing: border-box;
             font-size: 0.9em;
             outline: none;
+<<<<<<< HEAD
             resize: none;
             min-height: 100px;
+=======
+            resize: none; /* Prevent manual resizing */
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
         }
 
         .comment-actions {
@@ -155,6 +168,21 @@
             cursor: not-allowed;
         }
 
+<<<<<<< HEAD
+=======
+        .notify-checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            color: #777;
+            font-size: 0.85em;
+        }
+
+        .notify-checkbox {
+            margin-right: 5px;
+        }
+
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
         .comment-list-section {
             margin-top: 30px;
         }
@@ -212,6 +240,7 @@
             margin-bottom: 10px;
         }
 
+<<<<<<< HEAD
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -236,10 +265,27 @@
                 margin-bottom: 15px;
                 margin-right: 0;
             }
+=======
+        .comment-actions-secondary {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .comment-actions-secondary button {
+            background: none;
+            border: none;
+            color: #b83239;
+            cursor: pointer;
+            outline: none;
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <header class="navbar">
         <div class="logo">Modern Kusina</div>
         <nav class="nav-links">
@@ -249,6 +295,18 @@
             <a href="membership.html" class="membership-link">Membership</a>
             <a href="Comments.html">Kitchen Confessions</a>
             <a href="recipeshare.html">Share Your Recipe</a>
+=======
+
+  <header class="navbar">
+        <div class="logo">Modern Kusina</div>
+        <nav class="nav-links">
+            <a href="mainwebsite.html">International Foods</a>
+            <a href="aboutus.html">About us </a>
+            <a href="Recipes.html">Recipes</a>
+            <a href="membership.html" class="membership-link">Membership</a>
+            <a href="Comments.html" >Kitchen Confessions</a>
+            <a href="recipeshare.html" >Share Your Recipe</a>
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
         </nav>
     </header>
 
@@ -260,12 +318,25 @@
             </div>
 
             <div class="comment-input-area">
+<<<<<<< HEAD
                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=default" alt="Your Avatar">
                 <div class="input-content">
                     <h2>Share your thoughts:</h2>
                     <input type="text" class="user-name-input" placeholder="Your Name (Optional)">
                     <textarea class="user-comment-input" placeholder="Write your comment here..."></textarea>
                     <div class="comment-actions">
+=======
+                <img src="user.png" alt="Your Avatar">
+                <div class="input-content">
+                    <h2>Share your thoughts:</h2>
+                    <input type="text" class="user-name-input" placeholder="Your Name (Optional)">
+                    <textarea class="user-comment-input" rows="4" placeholder="Write your comment here..."></textarea>
+                    <div class="comment-actions">
+                        <div class="notify-checkbox-container">
+                            <input type="checkbox" class="notify-checkbox">
+                            <span>Notify me of replies</span>
+                        </div>
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
                         <button type="button" class="publish-button" disabled id="publish">Post Comment</button>
                     </div>
                 </div>
@@ -279,6 +350,7 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
 
     <script type="module">
         // Import Firebase modules
@@ -388,5 +460,104 @@
             }
         });
     </script>
+=======
+<!-- Firebase SDKs -->
+<script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyASHJfEJF_vJGkYaPUAjqJu4hj2DAdMOr0",
+    authDomain: "modern-kusina.firebaseapp.com",
+    projectId: "modern-kusina",
+    storageBucket: "modern-kusina.appspot.com",
+    messagingSenderId: "387721623993",
+    appId: "1:387721623993:web:a1ced7169342e2c4c9de68",
+    measurementId: "G-4KXQ17T3WX"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // DOM elements
+  const userCommentInput = document.querySelector(".user-comment-input");
+  const userNameInput = document.querySelector(".user-name-input");
+  const publishButton = document.querySelector("#publish");
+  const commentListContainer = document.getElementById("comment-list");
+  const commentCountSpan = document.querySelector("#comment-count");
+
+  // Enable publish button when input is not empty
+  userCommentInput.addEventListener("input", () => {
+    publishButton.disabled = !userCommentInput.value.trim();
+  });
+
+  // Post a new comment to Firestore
+  async function postComment() {
+    const name = userNameInput.value.trim() || "Anonymous";
+    const message = userCommentInput.value.trim();
+    const image = name === "Anonymous" ? "anonymous.png" : "user.png";
+
+    if (!message) return;
+
+    try {
+      await addDoc(collection(db, "comments"), {
+        name,
+        message,
+        image,
+        timestamp: serverTimestamp()
+      });
+
+      userCommentInput.value = "";
+      userNameInput.value = "";
+      publishButton.disabled = true;
+
+      loadComments(); // Refresh comments
+    } catch (error) {
+      console.error("Error adding comment: ", error);
+    }
+  }
+
+  // Load comments from Firestore
+  async function loadComments() {
+    commentListContainer.innerHTML = "";
+    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+    const querySnapshot = await getDocs(q);
+
+    let count = 0;
+    querySnapshot.forEach((doc) => {
+      const { name, message, image, timestamp } = doc.data();
+      const date = timestamp?.toDate().toLocaleDateString() || "Unknown";
+      const time = timestamp?.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) || "";
+
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment-item");
+      commentDiv.innerHTML = `
+        <img src="${image}" alt="${name}">
+        <div class="comment-content-area">
+          <div class="comment-header">
+            <h3>${name}</h3>
+            <span class="comment-date">${date} - ${time}</span>
+          </div>
+          <p class="comment-text">${message}</p>
+        </div>
+      `;
+      commentListContainer.appendChild(commentDiv);
+      count++;
+    });
+
+    commentCountSpan.textContent = count;
+  }
+
+  publishButton.addEventListener("click", postComment);
+
+  // Load comments on page load
+  window.addEventListener("DOMContentLoaded", loadComments);
+  
+</script>
+
+>>>>>>> 664b11a623ed6422086eb4a00c888b8f3aacb365
 </body>
 </html>
